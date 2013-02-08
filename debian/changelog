@@ -1,3 +1,10 @@
+music123 (12) unstable; urgency=low
+  * Delete mips/mipsel from the architecture list, as
+    gnat-* doesn't seem to exists over there.
+  * Also remove gnat3.2 from build-depends.
+
+ -- David Starner <dvdeug@debian.org>  Fri, 03 Oct 2003 11:45:34 -0700
+   
 music123 (11) unstable; urgency=low
   * The lost world release.
   * Since mips/mipsel can't build gnat3.3, accept gnat3.2.
