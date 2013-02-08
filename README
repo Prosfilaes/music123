@@ -1,3 +1,8 @@
+NOTE: This is old. The code should still be good, but this file
+definitely needs some updating, especially with pulseaudio's current
+domination. I've plans to start doing new releases, but started with
+just getting all the old releases into a source tracking system.
+
 This is music123 version 16.2 (new versioning policy to include minor
 changes and bug fixes)
 
