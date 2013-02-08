@@ -1,4 +1,4 @@
-This is music123 version 8 ('less' versioning system).
+This is music123 version 10 ('less' versioning system).
 
 music123's goal in life is simple. With just mpg123 or ogg123, there
 was no way to randomly play a mixed batch of ogg's and mp3's.  If
@@ -26,8 +26,10 @@ be killed by Control-C. Note that it can be removed with the -D
 option, or changed by -d.
 
 If anyone has added stuff to /etc/music123rc, I'd like to see it so
-I can add it into the master file (probably commented out). 
+I can add it into the master file (probably commented out). Note
+that it expects the exact same case for the extension as listed in
+that file.
  
 -- 
 David Starner - dvdeug@debian.org
-Last change on March 29, 2755 AUC (2002 AD).
+Last change on September 11, 2756 AUC (2003 AD).

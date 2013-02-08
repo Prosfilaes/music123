@@ -1,3 +1,16 @@
+music123 (10) unstable; urgency=low
+
+  * The lost actress release.
+  * The conffile had some entries with mixed case and some only
+    in lower case. Changed all to include upper, title and lower
+    case. Note this is a conffile change, and the program only
+    recognizes the exact case given in the conffile. (Closes: #191741)
+  * Update policy version and Build-Depends.
+  * Upstream Author(s) is a compromise decision of the upstream 
+    author(s).
+
+ -- David Starner <dvdeug@debian.org>  Thu, 11 Sep 2003 23:45:38 -0700
+ 
 music123 (9) unstable; urgency=low
 
   * The incompentent genius release.
