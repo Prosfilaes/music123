@@ -5,7 +5,7 @@ with Ada.Numerics.Float_Random; use Ada.Numerics.Float_Random;
 with Ada.Calendar; use Ada.Calendar;
 with Ada.Strings.Fixed;
 
-with GNAT.IO_Aux; use GNAT.IO_Aux;
+with GNAT.IO_Aux; 
 with GNAT.OS_Lib; use GNAT.OS_Lib;
 with GNAT.Directory_Operations; use GNAT.Directory_Operations;
 
@@ -13,6 +13,15 @@ with Intl; use Intl;
 with Interfaces.C;
 
 package body Support_Routines is
+   
+   -- The only point of this procedure is to work around a
+   -- bug in GCC 3.3 on AMD-64. After GCC 3.4 is available
+   -- it should be replaced with delay (with the same
+   -- arguments.
+   procedure Outline_Delay (Duration_Length : Duration) is
+   begin
+        delay (Duration_Length);
+   end Outline_Delay;
 
    function Format_String (Format : String; Insert : String) return String is
    begin
@@ -193,7 +202,7 @@ package body Support_Routines is
          declare
             Current_File : String := To_String (Get (File_List, I));
          begin
-            if not File_Exists (Current_File) then
+            if not GNAT.IO_Aux.File_Exists (Current_File) then
                Remove (File_List, I);
                I := I - 1;
             elsif Is_Directory (Current_File) then
@@ -312,23 +321,24 @@ package body Support_Routines is
       if Option_Eternal_Random then
          Len := Length (File_List);
          Reset (Gen, Integer (Seconds (Clock) * 10.0));
+         loop
+            J := Integer (Float'Floor (Random (Gen) * Float (Len))) + 1;
+            Play_A_Song (To_String (Get (File_List, J)), Option_Quiet);
+         end loop;
       end if;
 
       if Option_Random then
          Randomize_Names (File_List);
       end if;
-
+            
       <<Loop_Start>> null;
       for I in 1 .. Length (File_List) loop
-         if Option_Eternal_Random then
-            J := Integer (Float'Floor (Random (Gen) * Float (I))) + 1;
-            Play_A_Song (To_String (Get (File_List, J)), Option_Quiet);
-         else
-            Play_A_Song (To_String (Get (File_List, I)), Option_Quiet);
-         end if;
-         delay (Delay_Length);
+         Play_A_Song (To_String (Get (File_List, I)), Option_Quiet);
+         -- See comment on Outline_Delay on when to replace this next line with
+         -- delay (Delay_Length);
+         Outline_Delay (Delay_Length);
       end loop;
-      if Option_Loop or else Option_Eternal_Random then
+      if Option_Loop then
          goto Loop_Start;
       end if;
    end Play_Songs;

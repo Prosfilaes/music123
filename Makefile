@@ -1,12 +1,12 @@
 DESTDIR=/
 PREFIX=usr/local
 
-GM=/home/dvdeug/bin/gcc-3.4/bin/gnatmake
+GM=gnatmake
 
 all: music123 po-files
 
 music123: music123.adb support_routines.ads support_routines.adb ustring_list.ads vector.adb vector.ads intl.ads intl.adb
-	$(GM) -g -gnatf -O2 music123.adb
+	$(GM) -g -gnatf  music123.adb
 
 po-files:
 	cd po; ./Make.sh

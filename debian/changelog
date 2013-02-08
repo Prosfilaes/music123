@@ -1,3 +1,13 @@
+music123 (15) unstable; urgency=low
+  * The "Oh, that's what cutting edge means" release
+  * GCC-3.3 miscompiles music123 on AMD64; this update
+    encapsulates one line in a procedure to avoid that
+    compiler bug.
+  * Depend on gnat-3.4 | gnat-3.3 | gnat, since that 
+    should work now.
+
+ -- David Starner <dvdeug@debian.org>  Wed, 07 Jul 2004 18:32:13 -0500
+
 music123 (14) unstable; urgency=low
   * The lovely lace release.
   * Added AMD64 to the architecture list. (Closes: #251586)
