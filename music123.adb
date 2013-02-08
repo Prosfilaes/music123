@@ -16,7 +16,7 @@
 -- is a shell around various command line programs to play music files.
 -- It will descend directories trees with -r, and randomize file lists
 -- with -z. The programs used and the options given them are listed
--- in /etc/music123rc or ~/.music123rc.
+-- in /etc/music123rc or ~/.music123.
 --
 -- .SH OPTIONS
 -- .IP -h

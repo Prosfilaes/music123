@@ -1,3 +1,10 @@
+music123 (4) unstable; urgency=low
+
+  * Manpage fix. (Closes: #115230).
+  * No other changes.
+
+ -- David Starner <dstarner98@aasaa.ofe.org>  Mon, 15 Oct 2001 13:29:24 -0500
+
 music123 (3) unstable; urgency=low
 
   * Added information to the copyright file (Closes: #108771).
