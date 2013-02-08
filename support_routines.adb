@@ -57,14 +57,13 @@ package body Support_Routines is
    No_Home_Directory : exception;
 
    function Home_Directory return String is
-   --  Assumes that E will start at 1.
    begin
       for I in 1 .. Environment_Count loop
          declare
             E : String := Environment_Value (I);
          begin
-            if E (1 .. 5) = "HOME=" then
-               return (E  (6 .. E'Last));
+            if E (E'First .. E'First + 4) = "HOME=" then
+               return (E  (E'First + 5 .. E'Last));
             end if;
          end;
       end loop;
@@ -285,8 +284,8 @@ package body Support_Routines is
    procedure Play_Songs
      (File_List : in out UString_List.Vector;
       Program_List : in Tool_List.Vector;
+      Delay_Length : in Duration;
       Option_Quiet : in Boolean;
-      Option_Delay : in Boolean;
       Option_Loop : in Boolean;
       Option_Random : in Boolean;
       Option_Eternal_Random : in Boolean
@@ -347,9 +346,7 @@ package body Support_Routines is
          else
             Play_A_Song (To_String (Get (File_List, I)), Option_Quiet);
          end if;
-         if Option_Delay then
-            delay (0.5);
-         end if;
+         delay (Delay_Length);
       end loop;
       if Option_Loop or else Option_Eternal_Random then
          goto Loop_Start;

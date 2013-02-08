@@ -1,87 +1,5 @@
--- .TH music123 1 "July 29, 2000"
---
--- .SH NAME
--- music123 \- plays various sound files (usually including MP3, OGG and Wav).
---
--- .SH SYNOPSIS
--- .B music123
--- [
--- .B -hqrvz
--- ]
--- .I file
--- .B ...
---
--- .SH DESCRIPTION
--- .B music123
--- is a shell around various command line programs to play music files.
--- It will descend directories trees with -r, and randomize file lists
--- with -z. The programs used and the options given them are listed
--- in /etc/music123rc or ~/.music123.
---
--- .SH OPTIONS
--- .IP -h
--- Show command help and exit;
--- .IP -q
--- Quiet mode.  No messages are displayed.
--- .IP -r
--- Recurse into directories, instead of ignoring them.
--- .IP -v
--- Display version information and exit.
--- .IP -z
--- Play files in random order.
--- .IP -Z
--- Play the files randomly and endlessly.
--- .IP -l
--- Loop. -z -l differs from -Z in that -z -l will randomize, play
--- through the song list (without repetition) in random order once,
--- and repeat the songs in that order over and over; -Z will randomly
--- play the songs, without any order, and will possibly play a song
--- right after itself.
--- .IP -D
--- Set music123 not to delay between songs. (May make music123 harder to
--- kill.
--- .IP -@ file
--- Play the files listed in file. Other files can be added on the command
--- line, and this option can be given several times. Note that music123
--- doesn't yet play URLs.
--- .IP --
--- End option list.
---
--- .SH EXAMPLES
---
--- Play three songs:
--- .RS
--- .B music123 test1.ogg test2.mp3 test3.wav
--- .RE
--- .PP
---
--- Play a couple of directories and other songs at random:
--- .RS
--- .B music123 -z -r Rock/ test1.ogg Pop/ test4.wav
--- .RE
--- .PP
---
--- .SH FILES
---
--- .TP
--- /etc/music123rc
--- Describes which programs
--- .B music123
--- uses, which files types it supports,
--- and which options it passes those programs.
---
--- .TP
--- ~/.music123rc
--- Per-user config file to override the system wide settings.
--- .PP
---
--- .SH AUTHORS
---
--- .TP
--- Authors:
--- .br
--- David Starner <dstarner98@aasaa.ofe.org>
--- .br
+--  music123 by David Starner <dvdeug@debian.org>
+--  See debian/copyright 
 
 with Ada.Command_Line; use Ada.Command_Line;
 with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
@@ -97,9 +15,9 @@ procedure Music123 is
    Option_Quiet : Boolean := False;
    Option_Recurse : Boolean := False;
    Option_Random : Boolean := False;
-   Option_Delay : Boolean := True;
    Option_Loop : Boolean := False;
    Option_Eternal_Random : Boolean := False;
+   Delay_Length : Duration := 0.5;
    File_List : UString_List.Vector := New_Vector;
    Program_List : Tool_List.Vector := New_Vector;
 
@@ -109,7 +27,7 @@ begin
    Text_Domain ("music123");
    Bind_Text_Domain ("music123", "/usr/share/locale");
    Version := To_Unbounded_String
-     (Format_String (N ("music123 version %d by David Starner"), "5"));
+     (Format_String (N ("music123 version %d by David Starner"), "8"));
 
    --  Import conffile first
    Import_Conffile (Program_List);
@@ -140,10 +58,25 @@ begin
          Set_Exit_Status (Success);
          return;
       elsif Argument (Arg_Num) = "-D" then
-         Option_Delay := False;
+         Delay_Length := 0.0;
+      elsif Argument (Arg_Num) = "-d" then
+         if Arg_Num < Argument_Count then 
+            begin
+               Delay_Length := Duration'Value (Argument (Arg_Num + 1));
+               Arg_Num := Arg_Num + 1;
+            exception
+	       when others =>
+		 Error (N ("Bad argument for -d."));
+		 raise Noted_Error;
+            end;    
+         else
+            Error (N ("Missing argument for -d."));
+            raise Noted_Error;
+         end if;
       elsif Argument (Arg_Num) = "-@" then
          if Arg_Num < Argument_Count then
             Read_Playlist (Argument (Arg_Num + 1), File_List);
+            Arg_Num := Arg_Num + 1;
          else
             Error (N ("Missing argument for -@."));
             raise Noted_Error;
@@ -171,8 +104,8 @@ begin
    Play_Songs
      (File_List,
       Program_List,
+      Delay_Length => Delay_Length,
       Option_Quiet => Option_Quiet,
-      Option_Delay => Option_Delay,
       Option_Loop => Option_Loop,
       Option_Random => Option_Random,
       Option_Eternal_Random => Option_Eternal_Random);

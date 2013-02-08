@@ -31,8 +31,8 @@ package Support_Routines is
    procedure Play_Songs
      (File_List : in out UString_List.Vector;
       Program_List : in Tool_List.Vector;
+      Delay_Length : in Duration;
       Option_Quiet : in Boolean;
-      Option_Delay : in Boolean;
       Option_Loop : in Boolean;
       Option_Random : in Boolean;
       Option_Eternal_Random : in Boolean

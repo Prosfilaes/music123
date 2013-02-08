@@ -1,13 +1,12 @@
 DESTDIR=/
 PREFIX=usr/local
 
-all: music123.1 music123 po-files
+GM=gnatmake
 
-music123.1: music123.adb
-	head -n 84 music123.adb | cut -c 4-100 > music123.1
+all: music123 po-files
 
 music123: music123.adb support_routines.ads support_routines.adb ustring_list.ads vector.adb vector.ads intl.ads intl.adb
-	gnatmake -g -gnatf -O2 music123.adb
+	$(GM) -g -gnatf -O2 music123.adb
 
 po-files:
 	cd po; ./Make.sh
@@ -28,4 +27,4 @@ install: music123.1 music123
 	for i in *.mo; do mkdir -p $(DESTDIR)$(PREFIX)/share/locale/`basename $$i .mo`/LC_MESSAGES; cp $$i $(DESTDIR)$(PREFIX)/share/locale/`basename $$i .mo`/LC_MESSAGES/music123.mo; done
 
 clean:
-	-rm music123.1 music123 *.o *.ali *~ b~* *.mo
+	-rm music123 *.o *.ali *~ b~* *.mo

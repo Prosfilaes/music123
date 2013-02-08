@@ -1,4 +1,4 @@
-This is music123 version 3 ('less' versioning system).
+This is music123 version 8 ('less' versioning system).
 
 music123's goal in life is simple. With just mpg123 or ogg123, there
 was no way to randomly play a mixed batch of ogg's and mp3's.  If
@@ -12,7 +12,7 @@ handle mixed collections of files. So I wrote music123.
 music123 has a similar interface to mpg123 and ogg123. It'll play
 any type of file listed in its config file, the first found of
 ~/.music123 or /etc/music123rc. The default config file includes
-lines for mp3, ogg, wav and wav.gz.
+lines for mp3, ogg, and wav.
 
 ogg123, by default, has the default device set to /dev/null. Since
 music123 normally uses the default device of ogg123, it won't play
@@ -23,16 +23,11 @@ ogg123 in the quotes.
 
 The half-second pause between songs is deliberate, so music123 can
 be killed by Control-C. Note that it can be removed with the -D
-option.
+option, or changed by -d.
 
 If anyone has added stuff to /etc/music123rc, I'd like to see it so
 I can add it into the master file (probably commented out). 
  
-There are a couple features that I'd like to add - better option
-handling, i18n, and printing the song info without 8 more lines from
-the music player. But it works for me, so those will have to wait
-for a latter version.
-
 -- 
-David Starner - dstarner98@aasaa.ofe.org, dvdeug@debian.org
-Last change on September 10th.
+David Starner - dvdeug@debian.org
+Last change on March 29, 2755 AUC (2002 AD).

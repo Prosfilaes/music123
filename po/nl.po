@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: music123 VERSION\n"
-"POT-Creation-Date: 2754-12-11 19:25-0500\n"
+"POT-Creation-Date: 2002-05-20 00:14-0500\n"
 "PO-Revision-Date: 2001-12-12 09:52 +0100\n"
 "Last-Translator: Joost van Baal <joostvb-music123-po-82@mdcc.cx>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -20,6 +20,15 @@ msgstr "music123 versie %d door David Starner"
 # music123.adb
 msgid "No arguments found."
 msgstr "Geen argumenten gevonden."
+
+# music123.adb
+#, fuzzy
+msgid "Bad argument for -d."
+msgstr "Ontbrekend argument bij -@."
+
+# music123.adb
+msgid "Missing argument for -@."
+msgstr "Ontbrekend argument bij -@."
 
 # music123.adb
 msgid "Missing argument for -@."

@@ -1,12 +1,12 @@
 Source: music123
 Section: sound
 Priority: optional
-Build-Depends: debmake, gnat (>= 3.14p-1), gettext
+Build-Depends: debmake, gnat-3.1, gettext
 Maintainer: David Starner <dvdeug@debian.org>
 Standards-Version: 3.2.1
 
 Package: music123
-Architecture: i386 sparc powerpc
+Architecture: i386 sparc powerpc alpha hppa ia64 mips mipsel s390
 Depends: ${shlibs:Depends}
 Recommends: esound-clients, mpg321 | mpg123, vorbis-tools
 Description: A command-line shell for sound-file players

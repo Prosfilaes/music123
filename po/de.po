@@ -4,8 +4,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: music123 5\n"
-"POT-Creation-Date: 2754-12-11 19:25-0500\n"
+"Project-Id-Version: music123 8\n"
+"POT-Creation-Date: 2002-05-20 00:14-0500\n"
 "PO-Revision-Date: 2754-12-11 19:24+0500\n"
 "Last-Translator: Michael Bramer <grisu@debian.org>\n"
 "Language-Team: Deutsch <de@li.org>\n"
@@ -20,6 +20,16 @@ msgstr "music123 Version %d von David Starner"
 # music123.adb
 msgid "No arguments found."
 msgstr "Keine Argumente gefunden"
+
+# music123.adb
+# changed by dvdeug
+msgid "Bad argument for -d."
+msgstr "Falsches Argument für -d."
+
+# music123.adb
+# changed by dvdeug
+msgid "Missing argument for -d."
+msgstr "Fehlendes Argument für -d."
 
 # music123.adb
 msgid "Missing argument for -@."
@@ -51,7 +61,7 @@ msgstr "-r     rekursiv durch die Verzeichnisse"
 
 # support_routines.adb
 msgid "-v     Print the version and exit"
-msgstr "-v     druckt die Version aus"
+msgstr "-v     gibt die Version aus"
 
 # support_routines.adb
 msgid "-z     Randomize the filelist"

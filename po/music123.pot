@@ -5,8 +5,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2754-12-11 19:25-0500\n"
+"Project-Id-Version: music123 version 8\n"
+"POT-Creation-Date: 2002-05-20 00:14-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,14 @@ msgstr ""
 
 #: music123.adb
 msgid "No arguments found."
+msgstr ""
+
+#: music123.adb
+msgid "Bad argument for -d."
+msgstr ""
+
+#: music123.adb
+msgid "Missing argument for -d."
 msgstr ""
 
 #: music123.adb

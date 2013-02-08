@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: music123\n"
-"POT-Creation-Date: 2754-12-11 19:25-0500\n"
+"POT-Creation-Date: 2002-05-20 00:14-0500\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-l10n-portuguese@lists.debian.org>\n"
@@ -20,6 +20,14 @@ msgstr "music123 versão %d, por David Starner"
 # music123.adb
 msgid "No arguments found."
 msgstr "Argumentos não encontrados."
+
+# music123.adb
+msgid "Bad argument for -d."
+msgstr "Argumento incorreto para -@."
+
+# music123.adb
+msgid "Missing argument for -d."
+msgstr "Argumento faltando para -d."
 
 # music123.adb
 msgid "Missing argument for -@."

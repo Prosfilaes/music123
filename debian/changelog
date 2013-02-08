@@ -1,3 +1,15 @@
+music123 (8) unstable; urgency=low
+
+  * The quiet mathematician release.
+  * Add delay option. (Closes: #139801)
+  * Seperate out manpage.
+  * Fix minor bug where -@ would include its argument in the file list.
+  * If you speak a non-English language, music123 has less then 20 strings
+    and a hundred line manpage, both of which can be translated. Please
+    help.
+
+ -- David Starner <dvdeug@debian.org>  Mon, 20 May 2002 00:14:19 -0500
+
 music123 (7) unstable; urgency=low
    
   * The lonely male geek release.
@@ -5,7 +17,7 @@ music123 (7) unstable; urgency=low
   * Recompile to fix that, and add build-depends so build daemons don't
     have the problem. 
 
- -- David Starner <dvdeug@debian.org>  Mon, 11 Feb 2001 02:35:37 -0600
+ -- David Starner <dvdeug@debian.org>  Mon, 11 Feb 2002 02:35:37 -0600
 
 music123 (6) unstable; urgency=low
 

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: music123 5\n"
-"POT-Creation-Date: 2754-12-11 19:25-0500\n"
+"POT-Creation-Date: 2002-05-20 00:14-0500\n"
 "PO-Revision-Date: 2001-12-12 09:00+0000\n"
 "Last-Translator: Edmund GRIMLEY EVANS <edmundo@rano.org>\n"
 "Language-Team: eo <eo@li.org>\n"
@@ -19,6 +19,16 @@ msgstr "music123 versio %d de David Starner"
 # music123.adb
 msgid "No arguments found."
 msgstr "Mankas argumentoj."
+
+# music123.adb
+# changed by dvdeug
+msgid "Bad argument for -d."
+msgstr "Malbona argumento por -d."
+
+# music123.adb
+# changed by dvdeug
+msgid "Missing argument for -d."
+msgstr "Mankas argumento por -d."
 
 # music123.adb
 msgid "Missing argument for -@."
