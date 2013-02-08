@@ -1,3 +1,12 @@
+music123 (14) unstable; urgency=low
+  * The lovely lace release.
+  * Added AMD64 to the architecture list. (Closes: #251586)
+  * Add a comment about playing files with mplayer.
+  * Except for the version number, the code and resulting assembly 
+    (on ix86) is unchanged.
+
+ -- David Starner <dvdeug@debian.org>  Sat, 12 Jun 2004 15:49:01 -0700
+
 music123 (13) unstable; urgency=low
   * Light a candle release
   * Note that recent versions of vorbis-tools support Ogg Flac

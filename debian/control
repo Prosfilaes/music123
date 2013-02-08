@@ -6,7 +6,7 @@ Maintainer: David Starner <dvdeug@debian.org>
 Standards-Version: 3.6.0
 
 Package: music123
-Architecture: alpha hppa i386 ia64 powerpc s390 sparc
+Architecture: alpha hppa i386 ia64 powerpc s390 sparc amd64
 Depends: ${shlibs:Depends}
 Recommends: esound-clients, mpg321 | mpg123, vorbis-tools
 Suggests: vorbis-tools (<= 1.0.1)
