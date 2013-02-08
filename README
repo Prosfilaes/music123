@@ -1,4 +1,5 @@
-This is music123 version 14 ('less' versioning system).
+This is music123 version 16.2 (new versioning policy to include minor
+changes and bug fixes)
 
 music123's goal in life is simple. With just mpg123 or ogg123, there
 was no way to randomly play a mixed batch of ogg's and mp3's.  If
@@ -11,7 +12,7 @@ handle mixed collections of files. So I wrote music123.
 
 music123 has a similar interface to mpg123 and ogg123. It'll play
 any type of file listed in its config file, the first found of
-~/.music123 or /etc/music123rc. The default config file includes
+~/.music123rc or /etc/music123rc. The default config file includes
 lines for mp3, ogg, and wav. With older versions of vorbis-tools,
 only Ogg Vorbis files would play, but newer ones also handle
 Ogg Flac and Ogg Speex.
@@ -47,3 +48,6 @@ that file.
 -- 
 David Starner - dvdeug@debian.org
 Last change on December 16, 2756 AUC (2003 AD).
+--
+Xavier Grave - xavier.grave@ipno.in2p3.fr
+Minor modification on March, 2010

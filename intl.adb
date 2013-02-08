@@ -41,7 +41,7 @@ package body Intl is
       function Internal (Msg : String) return chars_ptr;
       pragma Import (C, Internal, "gettext");
    begin
-      return Value (Internal (Msg & ASCII.Nul));
+      return Value (Internal (Msg & ASCII.NUL));
    end Gettext;
 
    --------------
@@ -52,7 +52,7 @@ package body Intl is
       function Internal (Domain, Msg : String) return chars_ptr;
       pragma Import (C, Internal, "dgettext");
    begin
-      return Value (Internal (Domain & ASCII.Nul, Msg & ASCII.Nul));
+      return Value (Internal (Domain & ASCII.NUL, Msg & ASCII.NUL));
    end Dgettext;
 
    ---------------
@@ -66,7 +66,7 @@ package body Intl is
         (Domain, Msg : String; Category : Integer) return chars_ptr;
       pragma Import (C, Internal, "dcgettext");
    begin
-      return Value (Internal (Domain & ASCII.Nul, Msg & ASCII.Nul, Category));
+      return Value (Internal (Domain & ASCII.NUL, Msg & ASCII.NUL, Category));
    end Dcgettext;
 
    -------------------------
@@ -88,7 +88,7 @@ package body Intl is
       procedure Internal (Domain : String);
       pragma Import (C, Internal, "textdomain");
    begin
-      Internal (Domain & ASCII.Nul);
+      Internal (Domain & ASCII.NUL);
    end Text_Domain;
 
    ----------------------
@@ -99,7 +99,7 @@ package body Intl is
       procedure Internal (Domain, Dirname : String);
       pragma Import (C, Internal, "bindtextdomain");
    begin
-      Internal (Domain & ASCII.Nul, Dirname & ASCII.Nul);
+      Internal (Domain & ASCII.NUL, Dirname & ASCII.NUL);
    end Bind_Text_Domain;
 
    procedure Set_Locale is
@@ -107,7 +107,7 @@ package body Intl is
       pragma Import (C, Internal, "setlocale");
       LC_ALL : constant := 6;
    begin
-      Internal (LC_ALL, "" & ASCII.Nul);
+      Internal (LC_ALL, "" & ASCII.NUL);
    end Set_Locale;
-   
+
 end Intl;

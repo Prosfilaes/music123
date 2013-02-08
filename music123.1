@@ -14,9 +14,9 @@ music123 \- plays various sound files (usually including MP3, Ogg and Wav).
 .SH DESCRIPTION
 .B music123
 is a shell around various command line programs to play music files.
-It will descend directories trees with -r, and randomize file lists
-with -z. The programs used and the options given them are listed
-in /etc/music123rc or ~/.music123.
+It will descend directories trees with \-r, and randomize file lists
+with \-z. The programs used and the options given them are listed
+in /etc/music123rc or ~/.music123rc.
 
 .SH OPTIONS
 .IP -h
@@ -32,16 +32,16 @@ Play files in random order.
 .IP -Z
 Play the files randomly and endlessly.
 .IP -l
-Loop. -z -l differs from -Z in that -z -l will randomize, play
+Loop. \-z \-l differs from \-Z in that \-z \-l will randomize, play
 through the song list (without repetition) in random order once,
-and repeat the songs in that order over and over; -Z will randomly
+and repeat the songs in that order over and over; \-Z will randomly
 play the songs, without any order, and will possibly play a song
 right after itself.
 .IP -D
 Set music123 not to delay between songs. (May make music123 harder to
 kill).
 .IP -d
-Customize the time music123 delays between songs. -d takes one argument,
+Customize the time music123 delays between songs. \-d takes one argument,
 expressed in seconds, which may have a fractional part.
 .IP -@
 Play the files listed in the mandatory argument of -@. Other files can be

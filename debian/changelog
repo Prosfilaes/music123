@@ -1,12 +1,83 @@
-music123 (15) unstable; urgency=low
-  * The "Oh, that's what cutting edge means" release
-  * GCC-3.3 miscompiles music123 on AMD64; this update
-    encapsulates one line in a procedure to avoid that
-    compiler bug.
-  * Depend on gnat-3.4 | gnat-3.3 | gnat, since that 
-    should work now.
+music123 (16.2-2) unstable; urgency=low
+  * 16.0-1 reached testing
 
- -- David Starner <dvdeug@debian.org>  Wed, 07 Jul 2004 18:32:13 -0500
+ -- Xavier Grave <xavier.grave@ipno.in2p3.fr>  Tue, 16 Mar 2010 15:21:26 +0100
+
+music123 (16.2-1) experimental; urgency=low
+  * New upstream version.
+    - use Ada.Containers.Vectors
+      use temporary file list for the sort before appending
+      files in a directory
+    Closes: #239769.
+
+ -- Xavier Grave <xavier.grave@ipno.in2p3.fr>  Mon,  8 Mar 2010 10:54:20 +0100
+
+music123 (16.0-1) unstable; urgency=low
+
+  [Xavier Grave]
+  * New upstream version.
+    Closes: #444319, #437601, #541738.
+  * New Maintainer taking charge with permission from the previous maintainer
+    Closes: #571190.
+  * separate sources from debian directory
+    - with the help of monotone and www.ada-france.org
+  * Architecture support changes to any.  Closes: #568449.
+  * upgrade to gnat-4.4
+    - build depend on gnat
+    Closes: #571191.
+
+  [Ludovic Brenta]
+  * Sponsor the package.
+  * DM-Upload-Allowed: yes.
+
+ -- Xavier Grave <xavier.grave@ipno.in2p3.fr>  Thu,  4 Mar 2010 11:14:20 +0100
+
+music123 (15-0.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Switch to gnat-4.3.  Closes: #485663.
+
+ -- Ludovic Brenta <lbrenta@debian.org>  Sat, 13 Sep 2008 16:14:19 +0200
+
+music123 (15-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Switch to gnat 4.1.  Closes: #376673.
+
+ -- Matej Vela <vela@debian.org>  Wed, 12 Jul 2006 11:18:59 +0200
+
+music123 (15) unstable; urgency=low
+
+  * NMU New Maintainer: Maxime ROBACHE. Closes: #285163.
+  * Man and program update concerning ~/.music123rc. Closes: #297716.
+  * New architecture support : kfreebsd-amd64. Closes: #361625.
+
+ -- Maxime ROBACHE <mrobache@linux.utc.fr>  Mon, 17 Apr 2006 22:20:00 +0000
+
+music123 (14.2) unstable; urgency=medium
+
+  * QA upload.
+  * Switch to gnat 4.0.  Closes: #357296.
+  * support_routines.adb: Fully qualify GNAT.IO_Aux.Get_Line to avoid
+    ambiguity with Ada.Text_IO.Get_Line.
+  * Switch to debhelper.
+  * debian/copyright:
+    - Update FSF address.
+    - Fix GPL path.
+  * debian/rules: Add support for DEB_BUILD_OPTIONS=noopt.
+  * Conforms to Standards version 3.6.2.
+
+ -- Matej Vela <vela@debian.org>  Thu, 16 Mar 2006 22:37:36 +0100
+
+music123 (14.1) unstable; urgency=low
+  * NMU with maintainer permission. 
+  * Orphaning the package.
+  * Switch to gnat-3.4 as gnat-3.3 is not available anymore.
+  * Added mips, mipsel, ppc64 and kfreebsd-i386 to the list of supported
+    architectures (closes: bug#333014, bug#301104, bug#345064).
+  * Remove suggestion of vorbis-tools as it is already in recommends.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 29 Dec 2005 08:48:17 +0100
 
 music123 (14) unstable; urgency=low
   * The lovely lace release.

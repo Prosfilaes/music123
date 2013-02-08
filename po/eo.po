@@ -71,12 +71,12 @@ msgid "See the manpage for more options."
 msgstr "Vidu la manpaøon por pli da opcioj."
 
 # support_routines.adb
-msgid "Neither /etc/music123rc or ~/.music123 found. Exiting."
-msgstr "Nek /etc/music123rc nek ~/.music123 estas trovita. Eliras."
+msgid "Neither /etc/music123rc or ~/.music123rc found. Exiting."
+msgstr "Nek /etc/music123rc nek ~/.music123rc estas trovita. Eliras."
 
 # support_routines.adb
-msgid "The config file (~/.music123 or /etc/music123rc) is corrupt."
-msgstr "La agordodosiero (~/.music123 aý /etc/music123rc) estas fuþita."
+msgid "The config file (~/.music123rc or /etc/music123rc) is corrupt."
+msgstr "La agordodosiero (~/.music123rc aý /etc/music123rc) estas fuþita."
 
 # support_routines.adb
 msgid "No valid filenames found."

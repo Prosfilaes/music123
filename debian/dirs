@@ -1,6 +1,6 @@
 usr/bin
-usr/man/man1
-usr/man/pl/man1
+usr/share/man/man1
+usr/share/man/pl/man1
 usr/share/doc/music123
 usr/share/doc/music123/examples
 etc

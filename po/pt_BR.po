@@ -70,13 +70,13 @@ msgid "See the manpage for more options."
 msgstr "Veja a página de manual para mais opções."
 
 # support_routines.adb
-msgid "Neither /etc/music123rc or ~/.music123 found. Exiting."
-msgstr "Nem o /etc/music123rc nem o ~/.music123 foram encontrados. Saindo."
+msgid "Neither /etc/music123rc or ~/.music123rc found. Exiting."
+msgstr "Nem o /etc/music123rc nem o ~/.music123rc foram encontrados. Saindo."
 
 # support_routines.adb
-msgid "The config file (~/.music123 or /etc/music123rc) is corrupt."
+msgid "The config file (~/.music123rc or /etc/music123rc) is corrupt."
 msgstr ""
-"O arquivo de configuração (~/.music123 ou /etc/music123rc) está corrompido."
+"O arquivo de configuração (~/.music123rc ou /etc/music123rc) está corrompido."
 
 # support_routines.adb
 msgid "No valid filenames found."

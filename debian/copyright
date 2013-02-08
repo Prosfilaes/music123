@@ -3,7 +3,7 @@ on Tue, 31 Jul 2001 22:54:05 -0500.
 
 I am the sole author and maintainer, so:
 
-Upstream Author(s): David Starner <dvdeug@debian.org>
+Upstream Author: David Starner <dvdeug@debian.org>
 Download Source: ftp://ftp.debian.org/debian/pool/main/m/music123
 (Yes, there is no other download source.)
 Maintainer: David Starner <dvdeug@debian.org>
@@ -29,7 +29,7 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 
 intl.adb and intl.ads are from libgtkada, and have their own copyrights and
-licenses - GPL (/usr/share/common-license/GPL) with the GNAT exception.
+licenses - GPL (/usr/share/common-licenses/GPL) with the GNAT exception.
 
 --                        Copyright (C) 2000                         --
 --        Emmanuel Briot, Joel Brobecker and Arnaud Charlet          --
@@ -46,8 +46,8 @@ licenses - GPL (/usr/share/common-license/GPL) with the GNAT exception.
 --                                                                   --
 -- You should have received a copy of the GNU General Public         --
 -- License along with this library; if not, write to the             --
--- Free Software Foundation, Inc., 59 Temple Place - Suite 330,      --
--- Boston, MA 02111-1307, USA.                                       --
+-- Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,      --
+-- Boston, MA 02110-1301, USA.                                       --
 --                                                                   --
 -- As a special exception, if other files instantiate generics from  --
 -- this unit, or you link this unit with other files to produce an   --

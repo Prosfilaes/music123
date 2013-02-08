@@ -55,6 +55,10 @@ msgid "-q     Run quiet"
 msgstr ""
 
 #: support_routines.adb
+msgid "-i     Ignore extension case"
+msgstr ""
+
+#: support_routines.adb
 msgid "-r     Recurse over directories"
 msgstr ""
 

@@ -72,12 +72,12 @@ msgid "See the manpage for more options."
 msgstr "Zie de manpage voor meer opties."
 
 # support_routines.adb
-msgid "Neither /etc/music123rc or ~/.music123 found. Exiting."
-msgstr "/etc/music123rc noch ~/.music123 gevonden. Programma beëindigd."
+msgid "Neither /etc/music123rc or ~/.music123rc found. Exiting."
+msgstr "/etc/music123rc noch ~/.music123rc gevonden. Programma beëindigd."
 
 # support_routines.adb
-msgid "The config file (~/.music123 or /etc/music123rc) is corrupt."
-msgstr "Het configuratiebestand (~/.music123 of /etc/music123rc) bevat fouten."
+msgid "The config file (~/.music123rc or /etc/music123rc) is corrupt."
+msgstr "Het configuratiebestand (~/.music123rc of /etc/music123rc) bevat fouten."
 
 # support_routines.adb
 msgid "No valid filenames found."

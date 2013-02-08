@@ -1,0 +1,90 @@
+V "GNAT Lib v4.4"
+A -O2
+A -g
+A -gnatf
+A -gnatwa
+A -gnaty
+A -gnatwe
+P SS ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnvnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnn
+
+U intl%b		intl.adb		84d057be NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W interfaces.c.strings%s  i-cstrin.adb		i-cstrin.ali
+W system%s		system.ads		system.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.string_ops%s	s-strops.adb		s-strops.ali
+
+U intl%s		intl.ads		cc16f521 NE OO PR PK
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-unccon.ads		20070406091342 51e09df2
+D interfac.ads		20090409232307 a69cad5c
+D i-c.ads		20070406091342 bc3ef662
+D i-cstrin.ads		20090409232307 841d8a31
+D intl.ads		20100308095928 cc16f521
+D intl.adb		20100308095928 138e1881
+D system.ads		20100731162437 df55302f
+D s-exctab.ads		20090409232307 5c1c61ae
+D s-parame.ads		20090409232307 f32e56e9
+D s-secsta.ads		20090409232307 7bae3621
+D s-stalib.ads		20090409232307 52b793d5
+D s-stoele.ads		20090409232307 ed966df3
+D s-stoele.adb		20090409232307 e9998c78
+D s-strops.ads		20090409232307 845f72d2
+D s-sopco3.ads		20090409232307 72ce1063
+D s-sopco4.ads		20090409232307 bc112723
+D s-sopco5.ads		20090409232307 191315e8
+X 3 interfac.ads
+36K9*Interfaces 171e15 7|31r6 31r32
+X 4 i-c.ads
+18K20*C 230e17 7|31r17 31r43
+X 5 i-cstrin.ads
+36K22*Strings 106e25 7|31w19 31r45
+50P9*chars_ptr(character) 7|41r47 52r55 66r59 77r58
+74V13*Value{string} 7|44r14 55r14 69r14 80r14
+X 6 intl.ads
+112K9*Intl 139l5 139e9 7|33b14 113l5 113t9
+115V13*Gettext{string} 115>22 7|40b13 45l8 45t15
+115s22 Msg{string} 7|40b22 44r31
+120V13*Dgettext{string} 120>23 120>40 7|51b13 56l8 56t16
+120s23 Domain{string} 7|51b23 55r31
+120s40 Msg{string} 7|51b40 55r51
+123V13*Dcgettext{string} 124>7 124>24 124>38 7|62b13 70l8 70t17
+124s7 Domain{string} 7|63b7 69r31
+124s24 Msg{string} 7|63b24 69r51
+124i38 Category{integer} 7|63b38 69r68
+127V13*Default_Text_Domain{string} 7|76b13 81l8 81t27
+130U14*Text_Domain 130>27 7|87b14 92l8 92t19
+130s27 Domain{string} 7|87b27 91r17
+134U14*Bind_Text_Domain 134>32 134>49 7|98b14 103l8 103t24
+134s32 Domain{string} 7|98b32 102r17
+134s49 Dirname{string} 7|98b49 102r37
+138U14*Set_Locale 7|105b14 111l8 111t18
+X 7 intl.adb
+41V16*Internal{5|50P9} 41>26 42b<c,gettext>25 44r21
+41s26 Msg{string}
+52V16*Internal{5|50P9} 52>26 52>34 53b<c,dgettext>25 55r21
+52s26 Domain{string}
+52s34 Msg{string}
+65V16*Internal{5|50P9} 66>10 66>18 66>32 67b<c,dcgettext>25 69r21
+66s10 Domain{string}
+66s18 Msg{string}
+66i32 Category{integer}
+77V16*Internal{5|50P9} 77>26 78b<c,textdomain>25 80r21
+77m26 Domain{8|64M9}
+88U17*Internal 88>27 89b<c,textdomain>25 91r7
+88s27 Domain{string}
+99U17*Internal 99>27 99>35 100b<c,bindtextdomain>25 102r7
+99s27 Domain{string}
+99s35 Dirname{string}
+106U17*Internal 106>27 106>47 107b<c,setlocale>25 110r7
+106i27 Category{integer}
+106s47 Locale{string}
+108N7 LC_ALL 110r17
+X 8 system.ads
+37K9*System 7|30w6 77r35 80r31 8|153e11
+64M9*Address 7|77r42
+66m4*Null_Address{64M9} 7|80r38
+

@@ -1,20 +1,23 @@
 Source: music123
 Section: sound
 Priority: optional
-Build-Depends: debmake, gnat-3.3, gettext
-Maintainer: David Starner <dvdeug@debian.org>
-Standards-Version: 3.6.0
+Build-Depends: debhelper (>= 7), gnat, gettext
+Maintainer: Xavier Grave <xavier.grave@ipno.in2p3.fr>
+DM-Upload-Allowed: yes
+Vcs-Browser: http://www.ada-france.org:8081/branch/changes/org.debian.music123
+Vcs-Mtn: www.ada-france.org org.music123
+Homepage: http://green.ada-france.org:8081/branch/changes/org.music123
+Standards-Version: 3.8.4
 
 Package: music123
-Architecture: alpha hppa i386 ia64 powerpc s390 sparc amd64
-Depends: ${shlibs:Depends}
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: esound-clients, mpg321 | mpg123, vorbis-tools
-Suggests: vorbis-tools (<= 1.0.1)
 Description: A command-line shell for sound-file players
  A command-line shell for programs like mpg123 and ogg123, music123
  plays a variety of sound files using a mpg123/ogg123-like interface.
- With all the Recommends installed, music123 plays wav, mp3 and 
- ogg files. By simply changing the config file, music123 can play any 
+ With all the Recommends installed, music123 plays wav, mp3 and
+ ogg files. By simply changing the config file, music123 can play any
  sound file you have a player for.
  .
  (If you install a recent version of vorbis-tools, music123 will

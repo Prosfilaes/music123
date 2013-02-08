@@ -1,14 +1,12 @@
 --  music123 by David Starner <dvdeug@debian.org>
---  See debian/copyright 
+--  See debian/copyright
 
 with Ada.Command_Line; use Ada.Command_Line;
 with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 with Ada.Text_IO;
 
 with Support_Routines; use Support_Routines;
-use Support_Routines.Tool_List;
 with Intl; use Intl;
-with UString_List; use UString_List;
 
 procedure Music123 is
    Arg_Num : Positive;
@@ -17,9 +15,10 @@ procedure Music123 is
    Option_Random : Boolean := False;
    Option_Loop : Boolean := False;
    Option_Eternal_Random : Boolean := False;
+   Option_Ignore_Extension_Case : Boolean := False;
    Delay_Length : Duration := 0.5;
-   File_List : UString_List.Vector := New_Vector;
-   Program_List : Tool_List.Vector := New_Vector;
+   File_List : UString_List.Vector;
+   Program_List : Tool_List.Vector;
 
    function N (Msg : String) return String renames Gettext;
 begin
@@ -27,7 +26,7 @@ begin
    Text_Domain ("music123");
    Bind_Text_Domain ("music123", "/usr/share/locale");
    Version := To_Unbounded_String
-     (Format_String (N ("music123 version %d by David Starner"), "14"));
+     (Format_String (N ("music123 version %d by David Starner"), "16"));
 
    --  Import conffile first
    Import_Conffile (Program_List);
@@ -53,6 +52,8 @@ begin
          Option_Loop := True;
       elsif Argument (Arg_Num) = "-r" then
          Option_Recurse := True;
+      elsif Argument (Arg_Num) = "-i" then
+         Option_Ignore_Extension_Case := True;
       elsif Argument (Arg_Num) = "-v" then
          Ada.Text_IO.Put (To_String (Version)); Ada.Text_IO.New_Line;
          Set_Exit_Status (Success);
@@ -60,15 +61,15 @@ begin
       elsif Argument (Arg_Num) = "-D" then
          Delay_Length := 0.0;
       elsif Argument (Arg_Num) = "-d" then
-         if Arg_Num < Argument_Count then 
+         if Arg_Num < Argument_Count then
             begin
                Delay_Length := Duration'Value (Argument (Arg_Num + 1));
                Arg_Num := Arg_Num + 1;
             exception
-	       when others =>
-		 Error (N ("Bad argument for -d."));
-		 raise Noted_Error;
-            end;    
+               when others =>
+                  Error (N ("Bad argument for -d."));
+                  raise Noted_Error;
+            end;
          else
             Error (N ("Missing argument for -d."));
             raise Noted_Error;
@@ -83,8 +84,10 @@ begin
          end if;
       elsif Argument (Arg_Num) = "--" then
          for I in Arg_Num + 1 .. Argument_Count loop
-            if Check_Filename (Argument (I), Program_List) then
-               Append (File_List, To_Unbounded_String (Argument (I)));
+            if Check_Filename (Argument (I),
+                               Program_List,
+                               Option_Ignore_Extension_Case) then
+               File_List.Append (Argument (I));
             end if;
          end loop;
          Arg_Num := Argument_Count + 1;
@@ -92,14 +95,19 @@ begin
          Error (N ("Unknown argument found."));
          raise Noted_Error;
       else
-         if Check_Filename (Argument (Arg_Num), Program_List) then
-            Append (File_List, To_Unbounded_String (Argument (Arg_Num)));
+         if Check_Filename (Argument (Arg_Num),
+                            Program_List,
+                            Option_Ignore_Extension_Case) then
+            File_List.Append (Argument (Arg_Num));
          end if;
       end if;
       Arg_Num := Arg_Num + 1;
    end loop;
 
-   Expand_And_Check_Filenames (File_List, Option_Recurse, Program_List);
+   Expand_And_Check_Filenames (File_List,
+                               Option_Recurse,
+                               Program_List,
+                              Option_Ignore_Extension_Case);
 
    Play_Songs
      (File_List,
@@ -108,10 +116,10 @@ begin
       Option_Quiet => Option_Quiet,
       Option_Loop => Option_Loop,
       Option_Random => Option_Random,
-      Option_Eternal_Random => Option_Eternal_Random);
+      Option_Eternal_Random => Option_Eternal_Random,
+      Option_Ignore_Extension_Case => Option_Ignore_Extension_Case);
 
 exception
    when Noted_Error =>
       Set_Exit_Status (Failure);
-      return;
 end Music123;

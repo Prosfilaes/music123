@@ -55,6 +55,10 @@ msgid "-q     Run quiet"
 msgstr "-q     Exécuter silencieusement"
 
 # support_routines.adb
+msgid "-i     Ignore extension case"
+msgstr "-i     Ignorer la casse des extensions de fichier"
+
+# support_routines.adb
 msgid "-r     Recurse over directories"
 msgstr "-r     Parcourir les sous-répertoires récursivement"
 
@@ -71,13 +75,13 @@ msgid "See the manpage for more options."
 msgstr "Voir la page de manuel pour découvrir d'autres d'options."
 
 # support_routines.adb
-msgid "Neither /etc/music123rc or ~/.music123 found. Exiting."
-msgstr "/etc/music123rc et ~/.music123 sont tous les deux introuvables. Arrêt."
+msgid "Neither /etc/music123rc or ~/.music123rc found. Exiting."
+msgstr "/etc/music123rc et ~/.music123rc sont tous les deux introuvables. Arrêt."
 
 # support_routines.adb
-msgid "The config file (~/.music123 or /etc/music123rc) is corrupt."
+msgid "The config file (~/.music123rc or /etc/music123rc) is corrupt."
 msgstr ""
-"Le fichier de configuration (~/.music123 ou /etc/music123rc) est corrompu."
+"Le fichier de configuration (~/.music123rc ou /etc/music123rc) est corrompu."
 
 # support_routines.adb
 msgid "No valid filenames found."
