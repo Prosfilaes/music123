@@ -3,12 +3,13 @@ with Ada.Characters.Latin_1;
 with Ada.Command_Line.Environment; use Ada.Command_Line.Environment;
 with Ada.Numerics.Discrete_Random;
 with Ada.Calendar;
+with Ada.Strings.Fixed;
 
 with GNAT.IO_Aux; use GNAT.IO_Aux;
 with GNAT.OS_Lib; use GNAT.OS_Lib;
 with GNAT.Directory_Operations; use GNAT.Directory_Operations;
 
-with Gtkada.Intl; use Gtkada.Intl;
+with Intl; use Intl;
 with Interfaces.C;
 
 package body Support_Routines is
@@ -160,6 +161,12 @@ package body Support_Routines is
 
    end Matched_Extension;
 
+   function Check_Filename (Full_Name : String; Extension_List : Tool_List.Vector) return Boolean is
+   begin
+      return Is_Directory (Full_Name) or else
+        Matched_Extension (Extension_List, Full_Name) /= Null_Tool;
+   end Check_Filename;
+
    procedure Expand_And_Check_Filenames
      (File_List : in out UString_List.Vector;
       Option_Recurse : in Boolean;
@@ -201,7 +208,14 @@ package body Support_Routines is
                         if Filename_Length /= 0 and then
                           (Filename_Length /= 1 or else Directory_Entry (1) /= '.') and then
                           (Filename_Length /= 2 or else Directory_Entry (1 .. 2) /= "..") then
-                           Append (File_List, To_Unbounded_String (Current_File & "/" & Directory_Entry (1 .. Filename_Length)));
+                           declare
+                              Full_Name : String := Current_File & "/" & Directory_Entry (1 .. Filename_Length);
+                           begin
+                              --  Adding, then removing the file was creating a O(N^2) result. Check it first.
+                              if Check_Filename (Full_Name, Extension_List) then
+                                 Append (File_List, To_Unbounded_String (Full_Name));
+                              end if;
+                           end;
                         end if;
                      end loop;
                      Close (Current_Directory);
@@ -210,11 +224,6 @@ package body Support_Routines is
                   when Directory_Error =>
                      null;
                end;
-            else
-               if Matched_Extension (Extension_List, Current_File) = Null_Tool then
-                  Remove (File_List, I);
-                  I := I - 1;
-               end if;
             end if;
             I := I + 1;
          end;
@@ -311,6 +320,28 @@ package body Support_Routines is
          delay (0.5);
       end loop;
    end Play_Songs;
+
+   procedure Read_Playlist (Full_Name : String; File_List : in out UString_List.Vector) is
+      Playlist : File_Type;
+   begin
+      begin
+         Open (Playlist, In_File, Full_Name);
+      exception
+         when others =>
+            Error (N ("Playlist file not found."));
+            raise Noted_Error;
+      end;
+      while (not End_Of_File (Playlist)) loop
+         declare
+            Line : String := Ada.Strings.Fixed.Trim (Get_Line (Playlist), Ada.Strings.Both);
+         begin
+            if Line /= "" and then Line (1) /= '#' then
+               Append (File_List, To_Unbounded_String (Line));
+            end if;
+         end;
+      end loop;
+      Close (Playlist);
+   end Read_Playlist;
 
  end Support_Routines;
 

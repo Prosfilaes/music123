@@ -1,5 +1,5 @@
 .\"                                      Hey, EMACS: -*- nroff -*-
-.TH wavgzplay.sh 1 "August 1, 2001"
+.TH wavgzplay.sh 1 "August 3, 2001"
 .SH NAME
 wavgzplay.sh \- a wav.gz player using music123
 .SH SYNOPSIS
@@ -13,5 +13,8 @@ command.
 and feeds the wav file to music123. A terribly simple script.
 .SH OPTIONS
 There are no options.
+.SH BUGS
+Certain file names with ' " ` and probably other characters in them won't work, and you can probably run
+arbitrary code with the right filenames. That's why this is in examples rather than /usr/bin.
 .SH AUTHOR
 This manual page was written by David Starner <dstarner98@aasaa.ofe.org>.

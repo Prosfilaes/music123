@@ -1,4 +1,4 @@
-This is music123 version 1 ('less' versioning system).
+This is music123 version 2 ('less' versioning system).
 
 music123's goal in life is simple. With just mpg123 or ogg123,
 there was no way to randomly play a mixed batch of ogg's and mp3's.
@@ -17,12 +17,11 @@ play any type of file listed in its config file, the first found
 of ~/.ogg123 or /etc/ogg123rc. The default config file includes
 lines for mp3, ogg, wav and wav.gz.
 
-music123 can be very slow, if you recurse into a large directory
-with few music files. (It adds the files to a vector, but latter
-removes them if they aren't recognized music files. O(N) behavior
-to remove a file, and O(N) removals adds up to O(N^2) behavior.)
-However, it's not slow in the usual case - it takes a second to
-start playing a random selection from my music folder of 2,500
+music123 can be slow, if you recurse into a large directory
+with many subdirectories. It can take a minute to load all 
+the files in /usr/share (2,500 directories). However, it's 
+not slow in the usual case - it takes a second to start 
+playing a random selection from my music folder of 2,500
 songs. (The half-second pause between songs is deliberate, so 
 music123 can be killed by Control-C.)
 
@@ -33,4 +32,4 @@ will have to wait for a latter version.
 
 -- 
 David Starner - dstarner98@aasaa.ofe.org, dvdeug@debian.org
-Last change on mar Jul 31 23:25:22 CDT 2001
+Last change on ven Aýg  3 21:39:38 CDT 2001

@@ -1,3 +1,13 @@
+music123 (2) unstable; urgency=low
+
+  * Hopefully, _this_ one will be the first release into Debian.
+  * Build-depends syntax is fixed. 
+  * Much improved startup time in the worst case.
+  * Dropped libgtkada-dev build-dependency.
+  * Playlist capability
+
+ -- David Starner <dstarner98@aasaa.ofe.org>  Tue, 31 Jul 2001 22:54:05 -0500
+
 music123 (1) unstable; urgency=low
 
   * First release.

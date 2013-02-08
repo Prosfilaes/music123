@@ -29,6 +29,10 @@
 -- Display version information and exit.
 -- .IP -z
 -- Play files in random order.
+-- .IP -@ file
+-- Play the files listed in file. Other files can be added on the command
+-- line, and this option can be given several times. Note that music123
+-- doesn't yet play URLs.
 -- .IP --
 -- End option list.
 --
@@ -40,9 +44,9 @@
 -- .RE
 -- .PP
 --
--- Play a couple of directories and other songs:
+-- Play a couple of directories and other songs at random:
 -- .RS
--- .B music123 -r Rock/ test1.ogg Pop/ test4.wav
+-- .B music123 -z -r Rock/ test1.ogg Pop/ test4.wav
 -- .RE
 -- .PP
 --
@@ -74,7 +78,7 @@ with Ada.Text_IO;
 
 with Support_Routines; use Support_Routines;
 use Support_Routines.Tool_List;
-with Gtkada.Intl; use Gtkada.Intl;
+with Intl; use Intl;
 with UString_List; use UString_List;
 
 procedure Music123 is
@@ -87,11 +91,13 @@ procedure Music123 is
 
    function N (Msg : String) return String renames Gettext;
 begin
+   --  Import conffile first
+   Import_Conffile (Program_List);
+
    --  Read command-line arguments
    if Argument_Count = 0 then
       Error (N ("No arguments found."));
-      Set_Exit_Status (Failure);
-      return;
+      raise Noted_Error;
    end if;
    Arg_Num := 1;
    while Arg_Num <= Argument_Count loop
@@ -109,22 +115,30 @@ begin
          Ada.Text_IO.Put (Version); Ada.Text_IO.New_Line;
          Set_Exit_Status (Success);
          return;
+      elsif Argument (Arg_Num) = "-@" then
+         if Arg_Num < Argument_Count then
+            Read_Playlist (Argument (Arg_Num + 1), File_List);
+	 else
+	    Error (N ("Missing argument for -@."));
+	    raise Noted_Error;
+         end if;
       elsif Argument (Arg_Num) = "--" then
          for I in Arg_Num + 1 .. Argument_Count loop
-            Append (File_List, To_Unbounded_String (Argument (I)));
+            if Check_Filename (Argument (I), Program_List) then
+               Append (File_List, To_Unbounded_String (Argument (I)));
+            end if;
          end loop;
          Arg_Num := Argument_Count + 1;
       elsif Argument (Arg_Num) (1) = '-' then
          Error (N ("Unknown argument found."));
-         Set_Exit_Status (Failure);
-         return;
+         raise Noted_Error;
       else
-         Append (File_List, To_Unbounded_String (Argument (Arg_Num)));
+         if Check_Filename (Argument (Arg_Num), Program_List) then
+            Append (File_List, To_Unbounded_String (Argument (Arg_Num)));
+         end if;
       end if;
       Arg_Num := Arg_Num + 1;
    end loop;
-
-   Import_Conffile (Program_List);
 
    Expand_And_Check_Filenames (File_List, Option_Recurse, Program_List);
 
@@ -133,9 +147,8 @@ begin
    end if;
    Play_Songs (File_List, Option_Quiet, Program_List);
 
-
-
 exception
    when Noted_Error =>
-      null;
+      Set_Exit_Status (Failure);
+      return;
 end Music123;

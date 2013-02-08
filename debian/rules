@@ -28,10 +28,11 @@ binary-arch: checkroot build
 	-rm -rf debian/tmp
 	install -d debian/tmp
 	cd debian/tmp && install -d `cat ../dirs`
-	$(MAKE) install DESTDIR=`pwd`/debian/tmp
+	$(MAKE) install DESTDIR=`pwd`/debian/tmp PREFIX=/usr
 # Must have debmake installed for this to work. Otherwise please copy
 # /usr/bin/debstd into the debian directory and change debstd to debian/debstd
-	debstd 
+	debstd -m -s 
+	rm `pwd`/debian/tmp/usr/bin/wavgzplay.sh
 	dpkg-gencontrol -isp
 	chown -R root.root debian/tmp
 	chmod -R go=rX debian/tmp

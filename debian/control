@@ -1,14 +1,14 @@
 Source: music123
 Section: sound
 Priority: optional
-Build-Depends: debmake gnat libgtkada1-dev
+Build-Depends: debmake, gnat
 Maintainer: David Starner <dstarner98@aasaa.ofe.org>
 Standards-Version: 3.2.1
 
 Package: music123
 Architecture: i386 sparc powerpc
 Depends: ${shlibs:Depends}
-Recommends: esound-clients, mpg321|mpg123, vorbis-tools
+Recommends: esound-clients, mpg321 | mpg123, vorbis-tools
 Description: A command-line shell for sound-file players
  A command-line shell for programs like mpg123 and ogg123, music123
  plays a variety of sound files using a mpg123/ogg123-like interface.
