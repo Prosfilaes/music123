@@ -1,0 +1,96 @@
+.TH music123 1 "25 lipiec 2002"
+
+.SH NAZWA
+music123 \- odtwarza ró¿ne pliki d¼wiêkowe (w tym MP3, Ogg i Wav).
+
+.SH SK£ADNIA
+.B music123
+[
+.B -hqrvz
+]
+.I plik
+.B ...
+
+.SH OPIS
+.B music123
+jest pow³ok± wokó³ ró¿nych programów s³u¿±cych do odtwarzania plików
+muzycznych. Mo¿e zag³êbiaæ siê w strukturê katalogów przy pomocy -r
+oraz losowo odtwarzaæ utwory przy pomozy -z. U¿ywane programy i opcje
+im przekazywane s± zawarte w plikach /etc/music123rc lub ~/.music123.
+
+.SH OPCJE
+.IP -h
+Poka¿ pomoc do polecenia i zakoñcz dzia³anie.
+.IP -q
+Tryb cichy. ¯adne komunikaty nie s± wy¶wietlane.
+.IP -r
+Rekurencyjnie zag³êbiaj siê w katalogi, zamiast je ignorowaæ.
+.IP -v
+Poka¿ informacjê o wersji programu i zakoñcz dzia³anie.
+.IP -z
+Odtwarzaj pliki w losowej kolejno¶ci.
+.IP -Z
+Odtwarzaj pliki w losowej kolejno¶ci i bez koñca.
+.IP -l
+Pêtla. -z -l ró¿ni siê od -Z tym, ¿e -z -l najpierw wylosuje 
+kolejno¶æ, a nastêpnie bêdzie odtwarza³ pliki w tej¿e kolejno¶ci
+raz po raz; -Z za¶ odtwarza piosenki w losowej kolejno¶ci 
+pozbawionej jakiegokolwiek porz±dku, w zwiazku z czym istnieje
+mo¿liwo¶æ odtworzenia tego samego pliku dwa (lub wiêcej) razy
+pod rz±d.
+.IP -D
+Nie rób przerw miêdzy piosenkami (mo¿e uczyniæ music123 trudniejszym
+do zabicia)
+.IP -d
+Ustawia d³ugo¶æ przerw miêdzy piosenkami. -d przyjmuje jeden argument,
+wyra¿ony w sekundach. Czas mo¿e zawieraæ czê¶æ u³amkow±.
+.IP -@
+Odtwarzaj pliki wymienione w obowi±zkowym argumencie do -@. Inne pliki mog± 
+byæ dodane z linii poleceñ. Ta opcja mo¿e byæ podana kilkakrotnie. Zauwa¿,
+¿e music123 jeszcze nie odtwarza URLi.
+.IP --
+Koniec listy opcji.
+
+.SH PRZYK£ADY
+
+Odtwórz trzy piosenki:
+.RS
+.B music123 test1.ogg test2.mp3 test3.wav
+.RE
+.PP
+
+Odtwórz losowo parê katalogów i piosenek:
+.RS
+.B music123 -z -r Rock/ test1.ogg Pop/ test4.wav
+.RE
+.PP
+
+.SH PLIKI
+
+.TP
+/etc/music123rc
+Opisuje których programów
+.B music123
+ma u¿yæ, jakie typy plików obs³uguje
+i jakie opcje przekazuje tym¿e programom.
+
+.TP
+~/.music123rc
+Indywidualne ustawienia danego u¿ytkownika.
+.PP
+
+.SH AUTORZY
+
+.TP
+Autorzy:
+.br
+David Starner <dvdeug@debian.org>
+.br
+
+.SH T£UMACZENIE
+
+.TP
+T³umacze:
+.br
+Grzegorz Ku¶nierz <konik@v-lo.krakow.pl>
+.br

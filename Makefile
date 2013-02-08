@@ -19,7 +19,9 @@ install: music123.1 music123
 	chmod 644 music123.1 wavgzplay.sh wavgzplay.sh.1
 	cp music123 wavgzplay.sh $(DESTDIR)$(PREFIX)/bin
 	cp music123.1 $(DESTDIR)$(PREFIX)/man/man1
+	cp music123.pl.1 $(DESTDIR)$(PREFIX)/man/pl/man1/music123.1
 	gzip -9 $(DESTDIR)$(PREFIX)/man/man1/music123.1
+	gzip -9 $(DESTDIR)$(PREFIX)/man/pl/man1/music123.1
 	cp README $(DESTDIR)$(PREFIX)/share/doc/music123
 	cp music123rc.conf $(DESTDIR)/etc/music123rc
 	cp wavgzplay.sh $(DESTDIR)$(PREFIX)/share/doc/music123/examples

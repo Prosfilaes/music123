@@ -1,6 +1,6 @@
 # french po file for music123
 # Copyright (C) 2001 Free Software Foundation, Inc.
-# Martin Quinson <Martin.Quinson@ens-lyon.fr>, 2001.
+# Martin Quinson <Martin.Quinson@ens-lyon.fr>, 2001, 2002.
 #
 msgid ""
 msgstr ""
@@ -23,17 +23,16 @@ msgid "No arguments found."
 msgstr "Arguments introuvables."
 
 # music123.adb
-#, fuzzy
 msgid "Bad argument for -d."
-msgstr "Un paramètre manque à l'argument -@."
+msgstr "Paramètre pour -d invalide."
 
 # music123.adb
 msgid "Missing argument for -d."
-msgstr "Un paramètre manque à l'argument -d."
+msgstr "Paramètre pour -d manquant."
 
 # music123.adb
 msgid "Missing argument for -@."
-msgstr "Un paramètre manque à l'argument -@."
+msgstr "Paramètre pour -@ manquant."
 
 # music123.adb
 msgid "Unknown argument found."

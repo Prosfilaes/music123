@@ -1,0 +1,86 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: music123 8\n"
+"POT-Creation-Date: 2002-07-26 04:36+0200\n"
+"Last-Translator: Grzegorz Ku¶nierz <konik@v-lo.krakow.pl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# music123.adb
+msgid "music123 version %d by David Starner"
+msgstr "music123 wersja %d autorstwa David'a Starner'a"
+
+# music123.adb
+msgid "No arguments found."
+msgstr "Nie znaleziono argumentów."
+
+# music123.adb
+# changed by dvdeug
+msgid "Bad argument for -d."
+msgstr "Z³y argument dla -d."
+
+# music123.adb
+# changed by dvdeug
+msgid "Missing argument for -d."
+msgstr "Brakuj±cy argument dla -d."
+
+# music123.adb
+msgid "Missing argument for -@."
+msgstr "Brakuj±cy argument dla -@."
+
+# music123.adb
+msgid "Unknown argument found."
+msgstr "Nieznany argument."
+
+# support_routines.adb
+msgid "music123: "
+msgstr "music123: "
+
+# support_routines.adb
+msgid "usage: music123 [-hqrvz] files ..."
+msgstr "sk³adnia: music123 [-hqrvz] files ..."
+
+# support_routines.adb
+msgid "-h     This help"
+msgstr "-h     Ta pomoc"
+
+# support_routines.adb
+msgid "-q     Run quiet"
+msgstr "-q     Uruchom w trybie cichym"
+
+# support_routines.adb
+msgid "-r     Recurse over directories"
+msgstr "-r     Zag³êbiaj siê w katalogi"
+
+# support_routines.adb
+msgid "-v     Print the version and exit"
+msgstr "-v     Wy¶wietl informacjê o wersji i wyjd¼"
+
+# support_routines.adb
+msgid "-z     Randomize the filelist"
+msgstr "-z     Odtwarzaj listê losowo"
+
+# support_routines.adb
+msgid "See the manpage for more options."
+msgstr "Zobacz stronê man aby zapoznaæ siê z pozosta³ymi opcjami."
+
+# support_routines.adb
+msgid "Neither /etc/music123rc or ~/.music123 found. Exiting."
+msgstr "Nie znaleziono /etc/music123rc ani ~/.music123. Wychodzê."
+
+# support_routines.adb
+msgid "The config file (~/.music123 or /etc/music123rc) is corrupt."
+msgstr "Plik konfigurcji (~/.music123 lub /etc/music123rc) jest nieprawid³owy."
+
+# support_routines.adb
+msgid "No valid filenames found."
+msgstr "Nie odnaleziono ¿adnych prawid³owych nazw plików."
+
+# support_routines.adb
+msgid "Playlist file not found."
+msgstr "Nie odnaleziono pliku playlisty."

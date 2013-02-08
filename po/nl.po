@@ -1,12 +1,12 @@
 # Dutch messages for music123
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# Joost van Baal <joostvb-music123-po-82@mdcc.cx>, 2001.
+# Copyright (C) 2001, 2002 Free Software Foundation, Inc.
+# Joost van Baal <joostvb-music123-po-82@mdcc.cx>, 2001, 2002
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: music123 VERSION\n"
 "POT-Creation-Date: 2002-05-20 00:14-0500\n"
-"PO-Revision-Date: 2001-12-12 09:52 +0100\n"
+"PO-Revision-Date: 2002-05-21 10:42 +0100\n"
 "Last-Translator: Joost van Baal <joostvb-music123-po-82@mdcc.cx>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,11 +24,12 @@ msgstr "Geen argumenten gevonden."
 # music123.adb
 #, fuzzy
 msgid "Bad argument for -d."
-msgstr "Ontbrekend argument bij -@."
+msgstr "Ontbrekend argument bij -d."
 
 # music123.adb
-msgid "Missing argument for -@."
-msgstr "Ontbrekend argument bij -@."
+#, fuzzy
+msgid "Missing argument for -d."
+msgstr "Ontbrekend argument bij -d."
 
 # music123.adb
 msgid "Missing argument for -@."

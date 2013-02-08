@@ -1,3 +1,14 @@
+music123 (9) unstable; urgency=low
+
+  * The incompentent genius release.
+  * Add a Polish translation which was sent to me in July.
+    Thanks, Grzegorz "Konik" Kusnierz.
+  * Correct various places where I thought I had updated
+    the translation music123-8 release; sorry, Martin Quinson and
+    Joost van Baal.
+
+ -- David Starner <dvdeug@debian.org>  Thu, 19 Sep 2002 19:11:16 -0500
+  
 music123 (8) unstable; urgency=low
 
   * The quiet mathematician release.
