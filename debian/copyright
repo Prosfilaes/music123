@@ -1,12 +1,12 @@
-This package was written by David Starner <dstarner98@aasaa.ofe.org> 
+This package was written by David Starner <dvdeug@debian.org> 
 on Tue, 31 Jul 2001 22:54:05 -0500.
 
 I am the sole author and maintainer, so:
 
-Upstream Author(s): David Starner <dstarner98@aasaa.ofe.org>
+Upstream Author(s): David Starner <dvdeug@debian.org>
 Download Source: ftp://ftp.debian.org/debian/pool/main/m/music123
 (Yes, there is no other download source.)
-Maintainer: David Starner <dstarner98@aasaa.ofe.org>
+Maintainer: David Starner <dvdeug@debian.org>
 
 Copyright 2001 David Starner.
 
@@ -27,3 +27,6 @@ THE AUTHOR OR ANY CONTRIBUTERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
 OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
+
+intl.adb and intl.ads are from libgtkada, and have their own copyrights and
+licenses - GPL with the GNAT exception.

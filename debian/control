@@ -1,8 +1,8 @@
 Source: music123
 Section: sound
 Priority: optional
-Build-Depends: debmake, gnat
-Maintainer: David Starner <dstarner98@aasaa.ofe.org>
+Build-Depends: debmake, gnat, gettext
+Maintainer: David Starner <dvdeug@debian.org>
 Standards-Version: 3.2.1
 
 Package: music123
@@ -12,6 +12,6 @@ Recommends: esound-clients, mpg321 | mpg123, vorbis-tools
 Description: A command-line shell for sound-file players
  A command-line shell for programs like mpg123 and ogg123, music123
  plays a variety of sound files using a mpg123/ogg123-like interface.
- With all the Recommends installed, music123 plays wav's, mp3's and 
- ogg's. By simply changing the config file, music123 can play any 
+ With all the Recommends installed, music123 plays wav, mp3 and 
+ ogg files. By simply changing the config file, music123 can play any 
  sound file you have a player for.

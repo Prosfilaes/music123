@@ -1,6 +1,13 @@
+music123 (6) unstable; urgency=low
+
+  * Remove misleading statement from changelog.
+  * Fix build-depends.
+  * Change maintainer from dstarner98@aasaa.ofe.org to dvdeug@debian.org.
+
+ -- David Starner <dvdeug@debian.org>  Thu, 20 Dec 2001 22:56:37 -0600
+
 music123 (5) unstable; urgency=low
 
-  * DO NOT RELEASE WITH eo.po IN PLACE!!!!
   * I18N support added.
   * No other changes.
 
