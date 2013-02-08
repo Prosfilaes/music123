@@ -1,7 +1,7 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Characters.Latin_1;
 with Ada.Command_Line.Environment; use Ada.Command_Line.Environment;
-with Ada.Numerics.Discrete_Random;
+with Ada.Numerics.Float_Random; use Ada.Numerics.Float_Random;
 with Ada.Calendar; use Ada.Calendar;
 with Ada.Strings.Fixed;
 
@@ -13,13 +13,6 @@ with Intl; use Intl;
 with Interfaces.C;
 
 package body Support_Routines is
-
-   subtype Index is Integer range 0 .. 2**30;
-   --  2**30 was chosen, as it's the largest multiple of two in a
-   --  signed 32 bit integer, and it's unlikely that music123 will
-   --  be called on to play more than a billion songs.
-   package Index_Pkg is new Ada.Numerics.Discrete_Random (Index);
-   use Index_Pkg;
 
    function Format_String (Format : String; Insert : String) return String is
    begin
@@ -245,21 +238,14 @@ package body Support_Routines is
    procedure Randomize_Names (File_List : in out UString_List.Vector) is
 
       A, B : Unbounded_String;
-      J : Index;
+      J : UString_List.Index;
       Gen : Generator;
-      Fold_Value : Integer := 2 ** 30;
       Len : Integer := Length (File_List);
    begin
-      while (Index'Last / Fold_Value) <= Len loop
-         Fold_Value := Fold_Value / 2;
-      end loop;
-
       Reset (Gen, Integer (Seconds (Clock) * 10.0));
-      for I in 1 .. Len loop
-         loop
-            J := Random (Gen) / Fold_Value;
-            exit when J <= Len and then J /= 0;
-         end loop;
+      -- From Knuth, TAOCP vol. 2, edition 3, page 146, 3.4.2, algorithm P
+      for I in reverse 2 .. Len loop
+         J := Integer (Float'Floor (Random (Gen) * Float (I))) + 1;
          A := Get (File_List, I);
          B := Get (File_List, J);
          Set (File_List, I, B);
@@ -293,9 +279,8 @@ package body Support_Routines is
      ) is
 
       Gen : Generator;
-      Fold_Value : Integer := 2 ** 30;
       Len : Integer;
-      J : Index;
+      J : UString_List.Index;
 
       use Interfaces.C;
       function System (Command : Char_Array) return Integer;
@@ -326,9 +311,6 @@ package body Support_Routines is
    begin
       if Option_Eternal_Random then
          Len := Length (File_List);
-         while (Index'Last / Fold_Value) <= Len loop
-            Fold_Value := Fold_Value / 2;
-         end loop;
          Reset (Gen, Integer (Seconds (Clock) * 10.0));
       end if;
 
@@ -339,10 +321,7 @@ package body Support_Routines is
       <<Loop_Start>> null;
       for I in 1 .. Length (File_List) loop
          if Option_Eternal_Random then
-            loop
-               J := Random (Gen) / Fold_Value;
-               exit when J <= Len and then J /= 0;
-            end loop;
+            J := Integer (Float'Floor (Random (Gen) * Float (I))) + 1;
             Play_A_Song (To_String (Get (File_List, J)), Option_Quiet);
          else
             Play_A_Song (To_String (Get (File_List, I)), Option_Quiet);

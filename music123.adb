@@ -27,7 +27,7 @@ begin
    Text_Domain ("music123");
    Bind_Text_Domain ("music123", "/usr/share/locale");
    Version := To_Unbounded_String
-     (Format_String (N ("music123 version %d by David Starner"), "8"));
+     (Format_String (N ("music123 version %d by David Starner"), "13"));
 
    --  Import conffile first
    Import_Conffile (Program_List);

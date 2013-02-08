@@ -1,3 +1,15 @@
+music123 (13) unstable; urgency=low
+  * Light a candle release
+  * Note that recent versions of vorbis-tools support Ogg Flac
+    and Ogg Speex, too, and suggest them.
+  * Add a note in README about music123 not handling sound; look in 
+    ogg123 and mpg123 if the sound doesn't play. (Closes: #211917)
+  * Fix the randomization function to use the algorithm from
+    Knuth; I don't know that it works any better, but the placebo
+    effect should work for, not against this one. (Closes: #184537)
+
+ -- David Starner <dvdeug@debian.org>  Tue, 16 Dec 2003 02:47:55 -0800
+ 
 music123 (12) unstable; urgency=low
   * Delete mips/mipsel from the architecture list, as
     gnat-* doesn't seem to exists over there.

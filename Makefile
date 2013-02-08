@@ -17,6 +17,7 @@ install: music123.1 music123
 	sleep 5s
 	chmod 755 music123
 	chmod 644 music123.1 wavgzplay.sh wavgzplay.sh.1
+	strip music123
 	cp music123 wavgzplay.sh $(DESTDIR)$(PREFIX)/bin
 	cp music123.1 $(DESTDIR)$(PREFIX)/man/man1
 	cp music123.pl.1 $(DESTDIR)$(PREFIX)/man/pl/man1/music123.1
