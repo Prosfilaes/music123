@@ -1,3 +1,11 @@
+music123 (5) unstable; urgency=low
+
+  * DO NOT RELEASE WITH eo.po IN PLACE!!!!
+  * I18N support added.
+  * No other changes.
+
+ -- David Starner <dvdeug@debian.org>  Tue, 11 Dec 2001 20:47:02 -0600
+
 music123 (4) unstable; urgency=low
 
   * Manpage fix. (Closes: #115230).

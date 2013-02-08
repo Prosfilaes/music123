@@ -1,0 +1,77 @@
+# Mesaøoj por music123 de David Starner.
+# Edmund GRIMLEY EVANS <edmundo@rano.org>, 2001.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: music123 5\n"
+"POT-Creation-Date: 2754-12-11 19:25-0500\n"
+"PO-Revision-Date: 2001-12-12 09:00+0000\n"
+"Last-Translator: Edmund GRIMLEY EVANS <edmundo@rano.org>\n"
+"Language-Team: eo <eo@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-3\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# music123.adb
+msgid "music123 version %d by David Starner"
+msgstr "music123 versio %d de David Starner"
+
+# music123.adb
+msgid "No arguments found."
+msgstr "Mankas argumentoj."
+
+# music123.adb
+msgid "Missing argument for -@."
+msgstr "Mankas argumento por -@."
+
+# music123.adb
+msgid "Unknown argument found."
+msgstr "Nekonata argumento."
+
+# support_routines.adb
+msgid "music123: "
+msgstr "music123: "
+
+# support_routines.adb
+msgid "usage: music123 [-hqrvz] files ..."
+msgstr "uzado: music123 [-hqrvz] dosieroj ..."
+
+# support_routines.adb
+msgid "-h     This help"
+msgstr "-h     Æi tiu helpo"
+
+# support_routines.adb
+msgid "-q     Run quiet"
+msgstr "-q     Ruli silente"
+
+# support_routines.adb
+msgid "-r     Recurse over directories"
+msgstr "-r     Trakti dosierujojn rekurse"
+
+# support_routines.adb
+msgid "-v     Print the version and exit"
+msgstr "-v     Montri la version kaj eliri"
+
+# support_routines.adb
+msgid "-z     Randomize the filelist"
+msgstr "-z     Hazarde reordigi la dosierliston"
+
+# support_routines.adb
+msgid "See the manpage for more options."
+msgstr "Vidu la manpaøon por pli da opcioj."
+
+# support_routines.adb
+msgid "Neither /etc/music123rc or ~/.music123 found. Exiting."
+msgstr "Nek /etc/music123rc nek ~/.music123 estas trovita. Eliras."
+
+# support_routines.adb
+msgid "The config file (~/.music123 or /etc/music123rc) is corrupt."
+msgstr "La agordodosiero (~/.music123 aý /etc/music123rc) estas fuþita."
+
+# support_routines.adb
+msgid "No valid filenames found."
+msgstr "Mankas validaj dosiernomoj."
+
+# support_routines.adb
+msgid "Playlist file not found."
+msgstr "Dosiero kun ludolisto ne trovita."

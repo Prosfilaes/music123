@@ -21,13 +21,21 @@ package body Support_Routines is
    package Index_Pkg is new Ada.Numerics.Discrete_Random (Index);
    use Index_Pkg;
 
-   function N (Msg : String) return String renames Gettext;
+   function Format_String (Format : String; Insert : String) return String is
+   begin
+      for I in Format'First .. Format'Last - 1 loop
+         if Format (I) = '%' and then Format (I + 1) = 'd' then
+            return Format (Format'First .. I - 1) & Insert & Format (I + 2 .. Format'Last);
+         end if;
+      end loop;
+      return Format; --  XXX Raise exception instead???
+   end Format_String;
 
    procedure Error (Error_String : String) is
    begin
-      Put (Standard_Error, "music123: " & Error_String); 
+      Put (Standard_Error, N ("music123: ") & Error_String);
       New_Line (Standard_Error);
-      Put (Standard_Error, Version); 
+      Put (Standard_Error, To_String (Version));
       New_Line (Standard_Error);
       Put (Standard_Error, N ("usage: music123 [-hqrvz] files ..."));
       New_Line (Standard_Error);
@@ -53,7 +61,7 @@ package body Support_Routines is
    begin
       for I in 1 .. Environment_Count loop
          declare
-            E : String := Environment_Value (i);
+            E : String := Environment_Value (I);
          begin
             if E (1 .. 5) = "HOME=" then
                return (E  (6 .. E'Last));
@@ -184,7 +192,7 @@ package body Support_Routines is
       Filename_Length : Natural;
    begin
       if Empty (Extension_List) then
-         Error (N ("The config file (~/.music123 or /etc/music123) is corrupt."));
+         Error (N ("The config file (~/.music123 or /etc/music123rc) is corrupt."));
          raise Noted_Error;
       end if;
       I := 1;

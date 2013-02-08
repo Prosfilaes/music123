@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: music123 5\n"
+"POT-Creation-Date: 2754-12-11 19:25-0500\n"
+"PO-Revision-Date: 2754-12-11 19:24+0500\n"
+"Last-Translator: Michael Bramer <grisu@debian.org>\n"
+"Language-Team: Deutsch <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# music123.adb
+msgid "music123 version %d by David Starner"
+msgstr "music123 Version %d von David Starner"
+
+# music123.adb
+msgid "No arguments found."
+msgstr "Keine Argumente gefunden"
+
+# music123.adb
+msgid "Missing argument for -@."
+msgstr "Fehlendes Argument für -@."
+
+# music123.adb
+msgid "Unknown argument found."
+msgstr "Unbekanntes Argument gefunden"
+
+# support_routines.adb
+msgid "music123: "
+msgstr "music123: "
+
+# support_routines.adb
+msgid "usage: music123 [-hqrvz] files ..."
+msgstr "usage: music123 [-hqrvz] files ..."
+
+# support_routines.adb
+msgid "-h     This help"
+msgstr "-h     Diese Hilfe"
+
+# support_routines.adb
+msgid "-q     Run quiet"
+msgstr "-q     Programmablauf ohne Ausgabe"
+
+# support_routines.adb
+msgid "-r     Recurse over directories"
+msgstr "-r     rekursiv durch die Verzeichnisse"
+
+# support_routines.adb
+msgid "-v     Print the version and exit"
+msgstr "-v     druckt die Version aus"
+
+# support_routines.adb
+msgid "-z     Randomize the filelist"
+msgstr "-z     mischt die Dateiliste"
+
+# support_routines.adb
+msgid "See the manpage for more options."
+msgstr "Für weitere Optionen siehe Man-Page"
+
+# support_routines.adb
+msgid "Neither /etc/music123rc or ~/.music123 found. Exiting."
+msgstr "Weder /etc/music123rc noch ~/.music123 wurden gefunden. Abbruch"
+
+# support_routines.adb
+msgid "The config file (~/.music123 or /etc/music123rc) is corrupt."
+msgstr "Die Konfigdatei (~/.music123 oder /etc/music123rc) sind beschädigt"
+
+# support_routines.adb
+msgid "No valid filenames found."
+msgstr "Kein gültiger Dateiname gefunden"
+
+# support_routines.adb
+msgid "Playlist file not found."
+msgstr "Playlist Datei nicht gefunden"

@@ -1,0 +1,78 @@
+# Dutch messages for music123
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# Joost van Baal <joostvb-music123-po-82@mdcc.cx>, 2001.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: music123 VERSION\n"
+"POT-Creation-Date: 2754-12-11 19:25-0500\n"
+"PO-Revision-Date: 2001-12-12 09:52 +0100\n"
+"Last-Translator: Joost van Baal <joostvb-music123-po-82@mdcc.cx>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# music123.adb
+msgid "music123 version %d by David Starner"
+msgstr "music123 versie %d door David Starner"
+
+# music123.adb
+msgid "No arguments found."
+msgstr "Geen argumenten gevonden."
+
+# music123.adb
+msgid "Missing argument for -@."
+msgstr "Ontbrekend argument bij -@."
+
+# music123.adb
+msgid "Unknown argument found."
+msgstr "Ongeldig argument gevonden."
+
+# support_routines.adb
+msgid "music123: "
+msgstr "music123: "
+
+# support_routines.adb
+msgid "usage: music123 [-hqrvz] files ..."
+msgstr "gebruik: music123 [-hqrvz] bestanden ..."
+
+# support_routines.adb
+msgid "-h     This help"
+msgstr "-h     Deze hulp"
+
+# support_routines.adb
+msgid "-q     Run quiet"
+msgstr "-q     Draai stil"
+
+# support_routines.adb
+msgid "-r     Recurse over directories"
+msgstr "-r     Loop recursief door directories"
+
+# support_routines.adb
+msgid "-v     Print the version and exit"
+msgstr "-v     Toon het versienummer en beëindig programma"
+
+# support_routines.adb
+msgid "-z     Randomize the filelist"
+msgstr "-z     Maak de volgorde van de bestandslijst willekeurig"
+
+# support_routines.adb
+msgid "See the manpage for more options."
+msgstr "Zie de manpage voor meer opties."
+
+# support_routines.adb
+msgid "Neither /etc/music123rc or ~/.music123 found. Exiting."
+msgstr "/etc/music123rc noch ~/.music123 gevonden. Programma beëindigd."
+
+# support_routines.adb
+msgid "The config file (~/.music123 or /etc/music123rc) is corrupt."
+msgstr "Het configuratiebestand (~/.music123 of /etc/music123rc) bevat fouten."
+
+# support_routines.adb
+msgid "No valid filenames found."
+msgstr "Geen valide bestandsnamen gevonden."
+
+# support_routines.adb
+msgid "Playlist file not found."
+msgstr "De playlist is niet gevonden."

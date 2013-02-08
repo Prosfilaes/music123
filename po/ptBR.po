@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: music123\n"
+"POT-Creation-Date: 2754-12-11 19:25-0500\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
+"Language-Team: Debian-BR <debian-l10n-portuguese@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: music123.adb
+msgid "music123 version 5 by David Starner"
+msgstr "music123 versão 5, por David Starner"
+
+#: music123.adb
+msgid "No arguments found."
+msgstr "Argumentos não encontrados."
+
+#: music123.adb
+msgid "Missing argument for -@."
+msgstr "Argumento faltando para -@."
+
+#: music123.adb
+msgid "Unknown argument found."
+msgstr "Argumento desconhecido encontrado."
+
+#: support_routines.adb
+msgid "music123: "
+msgstr "music123: "
+
+#: support_routines.adb
+msgid "usage: music123 [-hqrvz] files ..."
+msgstr "uso: music123 [-hqrvz] arquivos ..."
+
+#: support_routines.adb
+msgid "-h     This help"
+msgstr "-h      Esta ajuda"
+
+#: support_routines.adb
+msgid "-q     Run quiet"
+msgstr "-q      Rodar quieto"
+
+#: support_routines.adb
+msgid "-r     Recurse over directories"
+msgstr "-r      Entrar nos subdiretórios"
+
+#: support_routines.adb
+msgid "-v     Print the version and exit"
+msgstr "-v      Imprime a versão e sai"
+
+#: support_routines.adb
+msgid "-z     Randomize the filelist"
+msgstr "-z      Torna a lista de arquivos aleatória."
+
+#: support_routines.adb
+msgid "See the manpage for more options."
+msgstr "Veja a página de manual para mais opções."
+
+#: support_routines.adb
+msgid "Neither /etc/music123rc or ~/.music123 found. Exiting."
+msgstr "Nem o /etc/music123rc nem o ~/.music123 foram encontrados. Saindo."
+
+#: support_routines.adb
+msgid "The config file (~/.music123 or /etc/music123rc) is corrupt."
+msgstr "O arquivo de configuração (~/.music123 ou /etc/music123rc) está corrompido."
+
+#: support_routines.adb
+msgid "No valid filenames found."
+msgstr "Não foram encontrados nomes de arquivos válidos."
+
+#: support_routines.adb
+msgid "Playlist file not found."
+msgstr "Arquivo de playlist não encontrado."
+

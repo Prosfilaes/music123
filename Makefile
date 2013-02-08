@@ -1,13 +1,16 @@
 DESTDIR=/
 PREFIX=usr/local
 
-all: music123.1 music123
+all: music123.1 music123 po-files
 
 music123.1: music123.adb
 	head -n 84 music123.adb | cut -c 4-100 > music123.1
 
 music123: music123.adb support_routines.ads support_routines.adb ustring_list.ads vector.adb vector.ads intl.ads intl.adb
 	gnatmake -g -gnatf -O2 music123.adb
+
+po-files:
+	cd po; ./Make.sh
 
 install: music123.1 music123
 	echo "To be used automatically only!"
@@ -22,6 +25,7 @@ install: music123.1 music123
 	cp music123rc.conf $(DESTDIR)/etc/music123rc
 	cp wavgzplay.sh $(DESTDIR)$(PREFIX)/share/doc/music123/examples
 	cp wavgzplay.sh.1 $(DESTDIR)$(PREFIX)/share/doc/music123/examples
+	for i in *.mo; do mkdir -p $(DESTDIR)$(PREFIX)/share/locale/`basename $$i .mo`/LC_MESSAGES; cp $$i $(DESTDIR)$(PREFIX)/share/locale/`basename $$i .mo`/LC_MESSAGES/music123.mo; done
 
 clean:
-	-rm music123.1 music123 *.o *.ali *~ b~*
+	-rm music123.1 music123 *.o *.ali *~ b~* *.mo

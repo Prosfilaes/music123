@@ -5,7 +5,9 @@ with Intl;
 
 package Support_Routines is
 
-   Version : constant String := Intl.Gettext ("music123 version 3 by David Starner");
+   function N (Msg : String) return String renames Intl.Gettext;
+
+   Version : Unbounded_String;
 
    Noted_Error : exception;
 
@@ -18,6 +20,8 @@ package Support_Routines is
    package Tool_List is new Vector (Tool);
    use Tool_List;
 
+
+   function Format_String (Format : String; Insert : String) return String;
    procedure Error (Error_String : String);
    procedure Import_Conffile (Program_List : out Tool_List.Vector);
    procedure Expand_And_Check_Filenames

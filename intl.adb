@@ -102,4 +102,12 @@ package body Intl is
       Internal (Domain & ASCII.Nul, Dirname & ASCII.Nul);
    end Bind_Text_Domain;
 
+   procedure Set_Locale is
+      procedure Internal (Category : Integer; Locale : String);
+      pragma Import (C, Internal, "setlocale");
+      LC_ALL : constant := 6;
+   begin
+      Internal (LC_ALL, "" & ASCII.Nul);
+   end Set_Locale;
+   
 end Intl;

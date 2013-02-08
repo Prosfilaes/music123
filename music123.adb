@@ -105,6 +105,12 @@ procedure Music123 is
 
    function N (Msg : String) return String renames Gettext;
 begin
+   Set_Locale;
+   Text_Domain ("music123");
+   Bind_Text_Domain ("music123", "/usr/share/locale");
+   Version := To_Unbounded_String
+     (Format_String (N ("music123 version %d by David Starner"), "5"));
+
    --  Import conffile first
    Import_Conffile (Program_List);
 
@@ -130,7 +136,7 @@ begin
       elsif Argument (Arg_Num) = "-r" then
          Option_Recurse := True;
       elsif Argument (Arg_Num) = "-v" then
-         Ada.Text_IO.Put (Version); Ada.Text_IO.New_Line;
+         Ada.Text_IO.Put (To_String (Version)); Ada.Text_IO.New_Line;
          Set_Exit_Status (Success);
          return;
       elsif Argument (Arg_Num) = "-D" then

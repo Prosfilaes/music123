@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2754-12-11 19:25-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: music123.adb
+msgid "music123 version %d by David Starner"
+msgstr ""
+
+#: music123.adb
+msgid "No arguments found."
+msgstr ""
+
+#: music123.adb
+msgid "Missing argument for -@."
+msgstr ""
+
+#: music123.adb
+msgid "Unknown argument found."
+msgstr ""
+
+#: support_routines.adb
+msgid "music123: "
+msgstr ""
+
+#: support_routines.adb
+msgid "usage: music123 [-hqrvz] files ..."
+msgstr ""
+
+#: support_routines.adb
+msgid "-h     This help"
+msgstr ""
+
+#: support_routines.adb
+msgid "-q     Run quiet"
+msgstr ""
+
+#: support_routines.adb
+msgid "-r     Recurse over directories"
+msgstr ""
+
+#: support_routines.adb
+msgid "-v     Print the version and exit"
+msgstr ""
+
+#: support_routines.adb
+msgid "-z     Randomize the filelist"
+msgstr ""
+
+#: support_routines.adb
+msgid "See the manpage for more options."
+msgstr ""
+
+#: support_routines.adb
+msgid "Neither /etc/music123rc or ~/.music123 found. Exiting."
+msgstr ""
+
+#: support_routines.adb
+msgid "The config file (~/.music123 or /etc/music123rc) is corrupt."
+msgstr ""
+
+#: support_routines.adb
+msgid "No valid filenames found."
+msgstr ""
+
+#: support_routines.adb
+msgid "Playlist file not found."
+msgstr ""
+

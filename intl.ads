@@ -135,4 +135,5 @@ package Intl is
    --  Specify that the Domain message catalog will be found in Dirname.
    --  This overrides the default system locale data base.
 
+   procedure Set_Locale;
 end Intl;

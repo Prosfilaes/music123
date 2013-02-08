@@ -6,7 +6,7 @@ package=music123
 
 build:
 	$(checkdir)
-	
+	chmod +x po/Make.sh
 	$(MAKE) CFLAGS="-O2 -g -Wall"
 	touch build
 
