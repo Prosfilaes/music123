@@ -1,1 +1,0 @@
-shlibs:Depends=libc6 (>= 2.2.4-4), libgnat-3.13p-1 (>= 3.13p-5) | gnat (<< 3.14), libgnat-3.13p-1 (>= 3.13p-5) | gnat (>= 3.13p-5)

@@ -1,3 +1,12 @@
+music123 (7) unstable; urgency=low
+   
+  * The lonely male geek release.
+  * The version of GNAT changed, meaning the soname of libgnat changed.
+  * Recompile to fix that, and add build-depends so build daemons don't
+    have the problem. 
+
+ -- David Starner <dvdeug@debian.org>  Mon, 11 Feb 2001 02:35:37 -0600
+
 music123 (6) unstable; urgency=low
 
   * Remove misleading statement from changelog.
