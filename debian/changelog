@@ -1,0 +1,9 @@
+music123 (1) unstable; urgency=low
+
+  * First release.
+
+ -- David Starner <dstarner98@aasaa.ofe.org>  Tue, 31 Jul 2001 22:54:05 -0500
+
+Local variables:
+mode: debian-changelog
+End:

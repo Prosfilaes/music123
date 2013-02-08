@@ -1,0 +1,36 @@
+This is music123 version 1 ('less' versioning system).
+
+music123's goal in life is simple. With just mpg123 or ogg123,
+there was no way to randomly play a mixed batch of ogg's and mp3's.
+If you fed the wrong file to the wrong player, it would crash.
+Worse yet, if you wanted to go all free and use mpg321 instead
+of mpg123, it can't (at the time of this writing) randomly play
+songs at all.
+
+xmms could randomly play mixed ogg's and mp3's, but I'm frequently
+not in X. I'm sure there's some ncurses solution out there, but
+I like the mpg123/ogg123 interface - I just want something that
+can handle mixed collections of files. So I wrote music123.
+
+music123 has a similar interface to mpg123 and ogg123. It'll
+play any type of file listed in its config file, the first found
+of ~/.ogg123 or /etc/ogg123rc. The default config file includes
+lines for mp3, ogg, wav and wav.gz.
+
+music123 can be very slow, if you recurse into a large directory
+with few music files. (It adds the files to a vector, but latter
+removes them if they aren't recognized music files. O(N) behavior
+to remove a file, and O(N) removals adds up to O(N^2) behavior.)
+However, it's not slow in the usual case - it takes a second to
+start playing a random selection from my music folder of 2,500
+songs. (The half-second pause between songs is deliberate, so 
+music123 can be killed by Control-C.)
+
+There are a couple features that I'd like to add - better option
+handling, gettextization, and printing the song info without the
+rest of the music player noise. But it works for me, so those
+will have to wait for a latter version.
+
+-- 
+David Starner - dstarner98@aasaa.ofe.org, dvdeug@debian.org
+Last change on mar Jul 31 23:25:22 CDT 2001

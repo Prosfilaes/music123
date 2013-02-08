@@ -1,0 +1,8 @@
+51e5ec7916bd1471effa79024ddc97ac  usr/bin/music123
+a2c46bf04b092145f9ba0a16cac5d285  usr/bin/wavgzplay.sh
+c94240c00268648d68f2cde3e6f68536  usr/share/doc/music123/README
+d2b67563b600e443b0b0da2c4dac1e6b  usr/share/doc/music123/copyright
+1233f046bc0f3b9efd7d05405f6e75e5  usr/share/doc/music123/changelog.gz
+cda85de53198db4a3c79a146252967f5  usr/share/man/man1/music123.1.gz
+e951e31abe19c2583e5eec8f3c27b4df  usr/share/man/man1/wavgzplay.sh.1.gz
+2fd8fa8566aeee34f740934ff2734eff  etc/music123rc
