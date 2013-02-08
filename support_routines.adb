@@ -187,7 +187,8 @@ package body Support_Routines is
       -- 4096 is more than FILENAME_MAX on glibc 2.1 for Linux/i386.
       -- The internal implementation of Read (Dir) only does 1024
       -- on the same platform, but this makes us safe even if they
-      -- fix that.
+      -- change that. Bash wouldn't create a file name longer then
+      -- 255, so it shouldn't usually be a problem.
       Filename_Length : Natural;
    begin
       if Empty (Extension_List) then
