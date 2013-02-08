@@ -1,7 +1,7 @@
 DESTDIR=/
 PREFIX=usr/local
 
-GM=gnatmake
+GM=/home/dvdeug/bin/gcc-3.4/bin/gnatmake
 
 all: music123 po-files
 
