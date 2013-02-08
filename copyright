@@ -1,5 +1,9 @@
-This package was written by David Starner <dstarner98@aasaa.ofe.org> 
-on Tue, 31 Jul 2001 22:54:05 -0500.
+This package and program were written by David Starner 
+<dstarner98@aasaa.ofe.org> on Tue, 31 Jul 2001 22:54:05 -0500.
+
+For now, this is a Debian-native package, available from Debian only. 
+There's no upstream webpage or distribution, since it's a small program 
+(a few days of programming) and I didn't feel like creating one. 
 
 Copyright 2001 David Starner.
 

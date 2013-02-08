@@ -29,6 +29,17 @@
 -- Display version information and exit.
 -- .IP -z
 -- Play files in random order.
+-- .IP -Z
+-- Play the files randomly and endlessly.
+-- .IP -l
+-- Loop. -z -l differs from -Z in that -z -l will randomize, play
+-- through the song list (without repetition) in random order once,
+-- and repeat the songs in that order over and over; -Z will randomly
+-- play the songs, without any order, and will possibly play a song
+-- right after itself.
+-- .IP -D
+-- Set music123 not to delay between songs. (May make music123 harder to
+-- kill.
 -- .IP -@ file
 -- Play the files listed in file. Other files can be added on the command
 -- line, and this option can be given several times. Note that music123
@@ -86,6 +97,9 @@ procedure Music123 is
    Option_Quiet : Boolean := False;
    Option_Recurse : Boolean := False;
    Option_Random : Boolean := False;
+   Option_Delay : Boolean := True;
+   Option_Loop : Boolean := False;
+   Option_Eternal_Random : Boolean := False;
    File_List : UString_List.Vector := New_Vector;
    Program_List : Tool_List.Vector := New_Vector;
 
@@ -109,18 +123,24 @@ begin
          Option_Quiet := True;
       elsif Argument (Arg_Num) = "-z" then
          Option_Random := True;
+      elsif Argument (Arg_Num) = "-Z" then
+         Option_Eternal_Random := True;
+      elsif Argument (Arg_Num) = "-l" then
+         Option_Loop := True;
       elsif Argument (Arg_Num) = "-r" then
          Option_Recurse := True;
       elsif Argument (Arg_Num) = "-v" then
          Ada.Text_IO.Put (Version); Ada.Text_IO.New_Line;
          Set_Exit_Status (Success);
          return;
+      elsif Argument (Arg_Num) = "-D" then
+         Option_Delay := False;
       elsif Argument (Arg_Num) = "-@" then
          if Arg_Num < Argument_Count then
             Read_Playlist (Argument (Arg_Num + 1), File_List);
-	 else
-	    Error (N ("Missing argument for -@."));
-	    raise Noted_Error;
+         else
+            Error (N ("Missing argument for -@."));
+            raise Noted_Error;
          end if;
       elsif Argument (Arg_Num) = "--" then
          for I in Arg_Num + 1 .. Argument_Count loop
@@ -142,10 +162,14 @@ begin
 
    Expand_And_Check_Filenames (File_List, Option_Recurse, Program_List);
 
-   if Option_Random then
-      Randomize_Names (File_List);
-   end if;
-   Play_Songs (File_List, Option_Quiet, Program_List);
+   Play_Songs
+     (File_List,
+      Program_List,
+      Option_Quiet => Option_Quiet,
+      Option_Delay => Option_Delay,
+      Option_Loop => Option_Loop,
+      Option_Random => Option_Random,
+      Option_Eternal_Random => Option_Eternal_Random);
 
 exception
    when Noted_Error =>

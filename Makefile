@@ -4,9 +4,9 @@ PREFIX=usr/local
 all: music123.1 music123
 
 music123.1: music123.adb
-	head -n 73 music123.adb | cut -c 4-100 > music123.1
+	head -n 84 music123.adb | cut -c 4-100 > music123.1
 
-music123: music123.adb natural_vector.adb natural_vector.ads support_routines.ads support_routines.adb ustring_list.ads vector.adb vector.ads intl.ads intl.adb
+music123: music123.adb support_routines.ads support_routines.adb ustring_list.ads vector.adb vector.ads intl.ads intl.adb
 	gnatmake -g -gnatf -O2 music123.adb
 
 install: music123.1 music123
@@ -24,4 +24,4 @@ install: music123.1 music123
 	cp wavgzplay.sh.1 $(DESTDIR)$(PREFIX)/share/doc/music123/examples
 
 clean:
-	-rm music123.1 music123.1 music123 *.o *.ali *~ b~*
+	-rm music123.1 music123 *.o *.ali *~ b~*

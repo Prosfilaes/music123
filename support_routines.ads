@@ -1,11 +1,11 @@
-with Natural_Vector;
+with Vector;
 with UString_List; use UString_List;
 with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 with Intl;
 
 package Support_Routines is
 
-   Version : constant String := Intl.Gettext ("music123 version 1 by David Starner");
+   Version : constant String := Intl.Gettext ("music123 version 3 by David Starner");
 
    Noted_Error : exception;
 
@@ -15,7 +15,7 @@ package Support_Routines is
       Options : Unbounded_String;
    end record;
 
-   package Tool_List is new Natural_Vector (Tool);
+   package Tool_List is new Vector (Tool);
    use Tool_List;
 
    procedure Error (Error_String : String);
@@ -25,9 +25,14 @@ package Support_Routines is
       Option_Recurse : in Boolean;
       Extension_List : in Tool_List.Vector);
    procedure Play_Songs
-     (File_List : in UString_List.Vector;
+     (File_List : in out UString_List.Vector;
+      Program_List : in Tool_List.Vector;
       Option_Quiet : in Boolean;
-      Program_List : in Tool_List.Vector);
+      Option_Delay : in Boolean;
+      Option_Loop : in Boolean;
+      Option_Random : in Boolean;
+      Option_Eternal_Random : in Boolean
+     );
    procedure Randomize_Names (File_List : in out UString_List.Vector);
    procedure Read_Playlist (Full_Name : String; File_List : in out UString_List.Vector);
    function Check_Filename (Full_Name : String; Extension_List : Tool_List.Vector) return Boolean;

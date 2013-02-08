@@ -2,7 +2,7 @@ with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Characters.Latin_1;
 with Ada.Command_Line.Environment; use Ada.Command_Line.Environment;
 with Ada.Numerics.Discrete_Random;
-with Ada.Calendar;
+with Ada.Calendar; use Ada.Calendar;
 with Ada.Strings.Fixed;
 
 with GNAT.IO_Aux; use GNAT.IO_Aux;
@@ -14,12 +14,21 @@ with Interfaces.C;
 
 package body Support_Routines is
 
+   subtype Index is Integer range 0 .. 2**30;
+   --  2**30 was chosen, as it's the largest multiple of two in a
+   --  signed 32 bit integer, and it's unlikely that music123 will
+   --  be called on to play more than a billion songs.
+   package Index_Pkg is new Ada.Numerics.Discrete_Random (Index);
+   use Index_Pkg;
+
    function N (Msg : String) return String renames Gettext;
 
    procedure Error (Error_String : String) is
    begin
-      Put (Standard_Error, "music123: " & Error_String); New_Line (Standard_Error);
-      Put (Standard_Error, Version); New_Line (Standard_Error);
+      Put (Standard_Error, "music123: " & Error_String); 
+      New_Line (Standard_Error);
+      Put (Standard_Error, Version); 
+      New_Line (Standard_Error);
       Put (Standard_Error, N ("usage: music123 [-hqrvz] files ..."));
       New_Line (Standard_Error);
       Put (Standard_Error, N ("-h     This help"));
@@ -32,11 +41,15 @@ package body Support_Routines is
       New_Line (Standard_Error);
       Put (Standard_Error, N ("-z     Randomize the filelist"));
       New_Line (Standard_Error);
+      New_Line (Standard_Error);
+      Put (Standard_Error, N ("See the manpage for more options."));
+      New_Line (Standard_Error);
    end Error;
 
    No_Home_Directory : exception;
 
    function Home_Directory return String is
+   --  Assumes that E will start at 1.
    begin
       for I in 1 .. Environment_Count loop
          declare
@@ -49,18 +62,6 @@ package body Support_Routines is
       end loop;
       raise No_Home_Directory;
    end Home_Directory;
-
-   --   function Get_Line (File : File_Type) return String is
-   --      Return_Value : Unbounded_String;
-   --      A : String (1 .. 80);
-   --      Line_Length : Integer := 80;
-   --   begin
-   --      while Line_Length = 80 loop
-   --         Get_Line (File, A, Line_Length);
-   --         Append (Return_Value, A);
-   --      end loop;
-   --      return To_String (Return_Value);
-   --   end Get_Line;
 
    function Is_Whitespace (C : Character) return Boolean is
    begin
@@ -135,7 +136,7 @@ package body Support_Routines is
    function Matched_Extension (Extension_List : in Tool_List.Vector; Filename : String) return Tool is
       Pointer_Start, Pointer_End : Natural;
    begin
-      for I in 0 .. Length (Extension_List) loop
+      for I in 1 .. Length (Extension_List) loop
          declare
             Ext_List : String := To_String (Get (Extension_List, I).Extension_List);
          begin
@@ -186,10 +187,8 @@ package body Support_Routines is
          Error (N ("The config file (~/.music123 or /etc/music123) is corrupt."));
          raise Noted_Error;
       end if;
-      I := 0;
-      while not Empty (File_List) and then I <= Length (File_List) loop
-         --         Put (Integer'Image (Length (File_List))); New_Line;
-         --         Put (Integer'Image(I)); New_Line; New_Line;
+      I := 1;
+      while I <= Length (File_List) loop
          declare
             Current_File : String := To_String (Get (File_List, I));
          begin
@@ -236,41 +235,32 @@ package body Support_Routines is
    end Expand_And_Check_Filenames;
 
    procedure Randomize_Names (File_List : in out UString_List.Vector) is
-      subtype Index is Integer range 0 .. 2**16;
-      package Index_Pkg is new Ada.Numerics.Discrete_Random (Index);
-      use Index_Pkg;
-      use Ada.Calendar;
 
       A, B : Unbounded_String;
-      J, K : Index;
+      J : Index;
       Gen : Generator;
-      Fold_Value : Integer := 2 ** 16;
+      Fold_Value : Integer := 2 ** 30;
       Len : Integer := Length (File_List);
    begin
-      while (Index'Last / Fold_Value) < Len loop
+      while (Index'Last / Fold_Value) <= Len loop
          Fold_Value := Fold_Value / 2;
       end loop;
 
       Reset (Gen, Integer (Seconds (Clock) * 10.0));
-      for I in 0 .. Len loop
+      for I in 1 .. Len loop
          loop
             J := Random (Gen) / Fold_Value;
-            exit when J <= Len;
+            exit when J <= Len and then J /= 0;
          end loop;
-         loop
-            K := Random (Gen) / Fold_Value;
-            exit when K <= Len;
-         end loop;
-         A := Get (File_List, J);
-         B := Get (File_List, K);
-         Set (File_List, J, B);
-         Set (File_List, K, A);
+         A := Get (File_List, I);
+         B := Get (File_List, J);
+         Set (File_List, I, B);
+         Set (File_List, J, A);
       end loop;
    end Randomize_Names;
 
-   function Real_Shell_Fix (File : String) return String is
+   function Shell_Fix (File : String) return String is
    begin
---      Put (File); Put (Integer'Image (File'First)); Put (Integer'Image (File'Last)); New_Line;
       if File'Length = 1 then
          if File = "'" then
             return "'""'""'";
@@ -278,47 +268,84 @@ package body Support_Routines is
             return File;
          end if;
       elsif File (File'First) = ''' then
-         return "'""'""'" & Real_Shell_Fix (File (File'First + 1 .. File'Last));
+         return "'""'""'" & Shell_Fix (File (File'First + 1 .. File'Last));
       else
-         return File (File'First) & Real_Shell_Fix (File (File'First + 1 .. File'Last));
+         return File (File'First) & Shell_Fix (File (File'First + 1 .. File'Last));
       end if;
-   end Real_Shell_Fix;
-
-   function Shell_Fix (File : Unbounded_String) return String is
-   begin
-      return Real_Shell_Fix (To_String (File));
    end Shell_Fix;
 
    procedure Play_Songs
-     (File_List : in UString_List.Vector;
+     (File_List : in out UString_List.Vector;
+      Program_List : in Tool_List.Vector;
       Option_Quiet : in Boolean;
-      Program_List : in Tool_List.Vector) is
+      Option_Delay : in Boolean;
+      Option_Loop : in Boolean;
+      Option_Random : in Boolean;
+      Option_Eternal_Random : in Boolean
+     ) is
 
-      This_Program : Tool;
+      Gen : Generator;
+      Fold_Value : Integer := 2 ** 30;
+      Len : Integer;
+      J : Index;
+
       use Interfaces.C;
       function System (Command : Char_Array) return Integer;
       pragma Import (C, System, "system");
-      System_Result : Integer;
-   begin
-      for I in 0 .. Length (File_List) loop
-         This_Program := Matched_Extension (Program_List, To_String (Get (File_List, I)));
+
+      procedure Play_A_Song (File_Name : in String; Option_Quiet : in Boolean) is
+         System_Result : Integer;
+         This_Program : Tool;
+      begin
+         This_Program := Matched_Extension (Program_List, File_Name);
          if Option_Quiet then
             declare
                System_String : String := To_String (This_Program.Program & " " & This_Program.Options & " '" &
-                                                    Shell_Fix (Get (File_List, I)) & "'" & ">/dev/null 2>/dev/null");
+                                                    Shell_Fix (File_Name) & "'" & ">/dev/null 2>/dev/null");
             begin
                System_Result := System (To_C (System_String));
             end;
          else
             declare
                System_String : String :=  To_String (This_Program.Program & " " & This_Program.Options & " '" &
-                                                     Shell_Fix (Get (File_List, I)) & "'");
+                                                     Shell_Fix (File_Name) & "'");
             begin
                System_Result := System (To_C (System_String));
             end;
          end if;
-         delay (0.5);
+      end Play_A_Song;
+
+   begin
+      if Option_Eternal_Random then
+         Len := Length (File_List);
+         while (Index'Last / Fold_Value) <= Len loop
+            Fold_Value := Fold_Value / 2;
+         end loop;
+         Reset (Gen, Integer (Seconds (Clock) * 10.0));
+      end if;
+
+      if Option_Random then
+         Randomize_Names (File_List);
+      end if;
+
+      <<Loop_Start>> null;
+      for I in 1 .. Length (File_List) loop
+         if Option_Eternal_Random then
+            loop
+               J := Random (Gen) / Fold_Value;
+               exit when J <= Len and then J /= 0;
+            end loop;
+            Play_A_Song (To_String (Get (File_List, J)), Option_Quiet);
+         else
+            Play_A_Song (To_String (Get (File_List, I)), Option_Quiet);
+         end if;
+         if Option_Delay then
+            delay (0.5);
+         end if;
       end loop;
+      if Option_Loop or else Option_Eternal_Random then
+         goto Loop_Start;
+      end if;
    end Play_Songs;
 
    procedure Read_Playlist (Full_Name : String; File_List : in out UString_List.Vector) is

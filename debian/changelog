@@ -1,3 +1,14 @@
+music123 (3) unstable; urgency=low
+
+  * Added information to the copyright file (Closes: #108771).
+  * Random randomizes the file list better.
+  * README fixes. (Closes: #110447).
+  * Added -D (no delay) option. (Closes: #108772).
+  * Added -l (loop) and -Z (random loop).
+  * I18N changes put off until the next release.
+
+ -- David Starner <dstarner98@aasaa.ofe.org>  Mon, 10 Sep 2001 18:12:02 -0500
+
 music123 (2) unstable; urgency=low
 
   * Hopefully, _this_ one will be the first release into Debian.
@@ -14,6 +25,3 @@ music123 (1) unstable; urgency=low
 
  -- David Starner <dstarner98@aasaa.ofe.org>  Tue, 31 Jul 2001 22:54:05 -0500
 
-Local variables:
-mode: debian-changelog
-End:

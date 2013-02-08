@@ -1,11 +1,8 @@
 generic
-   type Index is (<>);
    type Component is private;
-   with function Advance (Old_Size : Index) return Index;
-   --  Gets the old vector size and gives out the new vector size
-   --  Because we can't go New_Size := Old_Size + 32, and succ
-   --  would do excessive allocations
 package Vector is
+
+   subtype Index is Natural;
 
    type Vector is private;
 
@@ -22,6 +19,7 @@ package Vector is
    procedure Remove (Vect : in out Vector; Pos : in Index);
    function Length (Vect : Vector) return Index;
    function Empty (Vect : Vector) return Boolean;
+   function Advance (Old_Size : Index) return Index;
 
 private
 
